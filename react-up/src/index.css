@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* Aplica el cursor personalizado a todo el sitio */
+
+/* Aplica fuente y cursor personalizados */
 body, * {
-  @apply cursor-custom;
+  @apply font-sans cursor-custom;
 }

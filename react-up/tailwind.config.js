@@ -7,6 +7,9 @@ export default {
         custom: "url('/gotar(3).png'), pointer", // Cursor personalizado
         
       },
+      fontFamily: {
+        sans: ['"Open Sans"', 'sans-serif'],
+      },
     },
   },
   plugins: [],

@@ -1,149 +1,139 @@
-import { useState } from "react";
-import {
-  FaBars,
-  FaTimes,
-  FaHome,
-  FaUserAlt,
-  FaSignOutAlt,
-} from "react-icons/fa";
-
-import { Player } from "@lottiefiles/react-lottie-player";
-import logoutAnimation from "../animation/Animation - 1737946669842.json"; // Importa la animación
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [showNotification, setShowNotification] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [showLottie, setShowLottie] = useState(false);
+  const navigate = useNavigate();
+  const [scrolled, setScrolled] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [scrolled]);
+
+  const activar = (id) => {
+    const botones = document.querySelectorAll("#menu > button:not(#logout)");
+    botones.forEach((btn) => {
+      btn.classList.remove("bg-[#9ACFE2]", "text-white");
+      btn.classList.add("text-[#2C3E50]");
+    });
+
+    if (id !== "logout") {
+      const activo = document.getElementById(id);
+      if (activo) {
+        activo.classList.add("bg-[#9ACFE2]", "text-white");
+        activo.classList.remove("text-[#2C3E50]");
+      }
+    }
   };
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+  const handleNavigation = (route) => {
+    navigate(route);
+    activar(route.substring(1));
   };
 
   const handleLogout = () => {
-    setShowLottie(true); // Muestra la animación
-    setTimeout(() => {
-      window.location.href = "/"; // Redirige después de la animación
-    }, 2000); // Ajusta el tiempo según la duración de la animación
+    console.log("Cerrando sesión...");
+    navigate("/login");
   };
 
   return (
-    <div className="flex">
-      {/* Sidebar */}
-      <nav
-        className={`fixed top-0 left-0 h-full bg-black text-white w-64 transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform md:translate-x-0 md:w-72`}
-      >
-        <div className="p-4">
-          {/* Logo */}
-          <div className="text-3xl font-bold text-green-500 mb-8">INDIEC</div>
-
-          {/* Menu items */}
-          <ul className="space-y-6">
-            <li className="hover:bg-green-500 p-3 rounded-md transition-colors">
-              <a href="/dashboard" className="flex items-center gap-3">
-                <FaHome size={20} /> Dashboard
-              </a>
-            </li>
-            
-          </ul>
-        </div>
-      </nav>
-
-      {/* Main content */}
-      <div className="flex-1 ml-0 md:ml-72 bg-gradient-to-r from-green-500">
-        {/* Top Bar */}
-        <div className="flex justify-between items-center bg-gradient-to-r from-black to-green-500 shadow-md p-4">
-          <div></div> {/* Empty for alignment */}
-          <div className="flex items-center space-x-4 md:flex-row flex-col">
-            {/* User Info with Dropdown */}
-            <div className="relative">
-              <div
-                className="flex items-center space-x-2 "
-                onClick={toggleDropdown}
-              >
-                <img
-                  className="w-10 h-10 rounded-full border-2 border-gray-300 hover:bg-gradient-to-r hover:from-green-500 hover:to-black hover:shadow-lg"
-                  style={{
-                    backgroundImage: "url('/musicaa.png')",
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover",
-                  }}
-                />
-              </div>
-
-              {/* Dropdown Menu */}
-              {dropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg p-4 text-sm">
-                  <ul className="space-y-2">
-                    <h5 className="font-bold">gerardo moran</h5>
-                    <li className="flex items-center gap-2">
-                      <FaUserAlt size={16} className="text-gray-600" />
-                      <a
-                        href="/perfil"
-                        className="text-gray-800 hover:text-green-500"
-                      >
-                        Perfil
-                      </a>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <FaSignOutAlt size={16} className="text-gray-600" />
-                      <button
-                        onClick={handleLogout}
-                        className="text-gray-800 hover:text-green-500 w-full text-left"
-                      >
-                        Cerrar sesión
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </div>
-
-            {/* Notification Button */}
-            <div className="relative md:mb-0 mb-2">
-              <button
-                className="bg-gray-200 p-2 rounded-full hover:bg-gray-300 focus:outline-none"
-                onClick={() => setShowNotification(!showNotification)}
-              >
-                🔔
-              </button>
-              {showNotification && (
-                <div className="absolute right-0 mt-2 w-64 bg-white rounded-md shadow-lg p-4 text-sm">
-                  <p className="font-bold mb-2">Notificaciones</p>
-                  <div className="bg-gray-100 p-3 rounded-md">
-                    Tienes nuevos eventos listos para ti 🎉
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Mobile Menu Toggle */}
-            <button
-              onClick={toggleMenu}
-              className="bg-gray-200 p-2 rounded-full hover:bg-gray-300 focus:outline-none md:hidden"
+    <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-sm shadow-md py-2' : 'bg-transparent py-4'}`}>
+      <div className="w-full flex justify-center">
+        <div
+          id="menu"
+          className="flex bg-[#D5DEE3] rounded-full shadow-lg px-6 py-2 gap-4"
+        >
+          <button
+            onClick={() => handleNavigation("/facturacion")}
+            id="facturacion"
+            className="flex flex-col items-center justify-center rounded-full px-4 py-2 text-[#2C3E50] bg-[#9ACFE2] text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
             >
-              {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-            </button>
-          </div>
-        </div>
+              <path d="M21 8V7l-3 2-3-2v1l3 2 3-2zm-6 4v1l3 2 3-2v-1l-3 2-3-2zm-6 3h5v2H9v-2zm0-4h8v2H9v-2zm0-4h8v2H9V7zm-6 3h2v10H3V10z" />
+            </svg>
+            <span className="text-sm font-medium">Facturación</span>
+          </button>
 
-        {/* Lottie Animation */}
-        {showLottie && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-            <Player
-              autoplay
-              loop={false}
-              src={logoutAnimation} // Usamos el archivo importado
-              style={{ height: "300px", width: "300px" }}
-            />
-          </div>
-        )}
+          <button
+            onClick={() => handleNavigation("/metodo de pago")}
+            id="metodo de pago"
+            className="flex flex-col items-center justify-center rounded-full px-4 py-2 text-[#2C3E50]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M4 6h16v2H4zm0 4h16v10H4zm2 2v2h4v-2H6z" />
+            </svg>
+            <span className="text-sm font-medium">Método de pago</span>
+          </button>
+
+          <button
+            onClick={() => handleNavigation("/clientes")}
+            id="clientes"
+            className="flex flex-col items-center justify-center rounded-full px-4 py-2 text-[#2C3E50]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5z" />
+            </svg>
+            <span className="text-sm font-medium">Clientes</span>
+          </button>
+
+          <button
+            onClick={() => handleNavigation("/historial")}
+            id="historial"
+            className="flex flex-col items-center justify-center rounded-full px-4 py-2 text-[#2C3E50]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M13 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9h-2c0 3.87-3.13 7-7 7s-7-3.13-7-7 3.13-7 7-7V3zm0 5h-1v5h5v-1h-4V8z" />
+            </svg>
+            <span className="text-sm font-medium">Historial</span>
+          </button>
+
+          <button
+            onClick={handleLogout}
+            id="logout"
+            className="flex flex-col items-center justify-center rounded-full px-1 py-1 bg-red-500 text-white hover:bg-red-600 transition-colors"
+            title="Cerrar sesión"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="size-4 h-6 w-6"
+            >
+              <path
+                fillRule="evenodd"
+                d="M16.5 3.75a1.5 1.5 0 0 1 1.5 1.5v13.5a1.5 1.5 0 0 1-1.5 1.5h-6a1.5 1.5 0 0 1-1.5-1.5V15a.75.75 0 0 0-1.5 0v3.75a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V5.25a3 3 0 0 0-3-3h-6a3 3 0 0 0-3 3V9A.75.75 0 1 0 9 9V5.25a1.5 1.5 0 0 1 1.5-1.5h6Zm-5.03 4.72a.75.75 0 0 0 0 1.06l1.72 1.72H2.25a.75.75 0 0 0 0 1.5h10.94l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 0 0-1.06 0Z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   );
