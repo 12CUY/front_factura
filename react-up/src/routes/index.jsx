@@ -45,7 +45,7 @@ const AppRoutes = () => {
         }
       />
       <Route
-        path="/metodo de pago"
+        path="/metodo-de-pago"
         element={
           <>
             <Navbar />
