@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Aplica el cursor personalizado a todo el sitio */
+body, * {
+  @apply cursor-custom;
+}

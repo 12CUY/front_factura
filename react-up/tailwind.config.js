@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       cursor: {
-        custom: "url('/cursor.png'), pointer", // Cursor personalizado
+        custom: "url('/gotar(3).png'), pointer", // Cursor personalizado
         
       },
     },
