@@ -48,9 +48,21 @@ const DashboardF = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div 
+      className="min-h-screen pt-20"
+      style={{
+        backgroundImage: "url('/login.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed"
+      }}
+    >
+      {/* Fondo semitransparente para mejorar legibilidad */}
+      <div className="absolute inset-0 bg-black/10"></div>
+      
       {/* Contenido principal */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         {/* Título responsive */}
         <div className="mb-8 text-center lg:text-left">
           <h1 className="text-3xl font-bold text-gray-900">
@@ -62,7 +74,7 @@ const DashboardF = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Columna 1 - Sección con imagen */}
           <div className="space-y-6">
-            <section className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center h-full transition-all duration-500 hover:shadow-xl">
+            <section className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center h-full transition-all duration-500 hover:shadow-xl backdrop-blur-sm bg-white/80">
               <div
                 className="animate-pulse mb-4"
                 style={{
@@ -92,7 +104,7 @@ const DashboardF = () => {
               <div
                 key={card.id}
                 onClick={() => handleCardClick(card.route)}
-                className={`${card.bgColor} rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer border border-transparent hover:border-white/30`}
+                className={`${card.bgColor} rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer border border-transparent hover:border-white/30 backdrop-blur-sm bg-opacity-80`}
               >
                 <div className="p-6">
                   <div className="flex items-center">
