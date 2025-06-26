@@ -7,8 +7,8 @@ const DashboardC = () => {
   const clientCards = [
     {
       id: 1,
-      title: "Creación de Tienda/Cliente",
-      description: "Registrar nuevo cliente o tienda",
+      title: "Creación de Cliente",
+      description: "Registrar nuevo cliente",
       icon: "https://cdn-icons-png.flaticon.com/512/1005/1005141.png",
       route: "/clientes/crear",
       bgColor: "bg-green-50",

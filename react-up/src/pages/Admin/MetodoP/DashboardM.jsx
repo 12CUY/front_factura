@@ -33,7 +33,7 @@ const DashboardM = () => {
     <div 
       className="min-h-screen pt-16"
       style={{
-        backgroundImage: "url('/login.jpg')",
+        backgroundImage: "url('/DetalleP.jpeg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

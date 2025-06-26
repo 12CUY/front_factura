@@ -1,16 +1,20 @@
 import { Routes, Route } from "react-router-dom";
+/*rutas de logeo  */
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-
-import Navbar from "../components/Navbar";
-
 import RecuperarContraseña from "../pages/Recuperar";
 
+/*el menu*/
+import Navbar from "../components/Navbar";
+
+/*rutas de parte de administrador */
 import DashboardC from "../pages/Admin/Clientes/DashboardC";
 import DashboardF from "../pages/Admin/Facturacion/DashboardF";
 import DashboardH from "../pages/Admin/HistorialP/DashboardH";
 import DashboardM from "../pages/Admin/MetodoP/DashboardM";
+import CreacionF from "../pages/Admin/Facturacion/CreaacionF";
 
+/*rutas */
 const AppRoutes = () => {
   return (
     <Routes>
@@ -52,6 +56,17 @@ const AppRoutes = () => {
             <DashboardM />
           </>
         }
+        
+      />
+      <Route
+        path="/facturacion/crear"
+        element={
+          <>
+            <Navbar />
+            <CreacionF />
+          </>
+        }
+        
       />
     </Routes>
   );
