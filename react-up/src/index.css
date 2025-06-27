@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+/* src/index.css */
+>>>>>>> 4240911 (3 vistas realizadas de clientes)
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
 
 @tailwind base;
@@ -8,3 +12,164 @@
 body, * {
   @apply font-sans cursor-custom;
 }
+<<<<<<< HEAD
+=======
+
+/* CLASE PERSONALIZADA PARA EL FONDO DE LA PÁGINA DE CREACIÓN DE CLIENTES Y LISTADO DE CLIENTES */
+.bg-creacion-cliente {
+    background-image: url("/fondo-listaclientes.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* CLASES PARA LA APARIENCIA DEL FORMULARIO (ClientCreationPage.jsx) - Sin cambios, mantenemos lo que funcionaba */
+.form-panel-shape {
+  clip-path: polygon(
+    20px 0%,
+    100% 0%,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    0% 100%,
+    0% 20px
+  );
+  -webkit-clip-path: polygon(
+    20px 0%,
+    100% 0%,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    0% 100%,
+    0% 20px
+  );
+}
+
+.bg-form-gradient {
+    background: linear-gradient(135deg, #B7E0F2, #9ACFE2 80%);
+}
+
+.form-shadow-effect {
+    position: relative;
+    z-index: 10;
+    transition: transform 0.7s ease-out, opacity 0.7s ease-out;
+}
+
+.form-shadow-effect::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    z-index: -1;
+    clip-path: polygon(
+        20px 0%,
+        100% 0%,
+        100% calc(100% - 20px),
+        calc(100% - 20px) 100%,
+        0% 100%,
+        0% 20px
+    );
+    -webkit-clip-path: polygon(
+        20px 0%,
+        100% 0%,
+        100% calc(100% - 20px),
+        calc(100% - 20px) 100%,
+        0% 100%,
+        0% 20px
+    );
+    background: rgba(0, 0, 0, 0.4);
+    filter: blur(25px);
+    transition: transform 0.7s ease-out, filter 0.3s ease-in-out, background 0.3s ease-in-out;
+    will-change: transform, filter, opacity;
+}
+input:not(.bg-form-gradient) {
+  background-color: #F8FAFC !important;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Nuevos estilos y animaciones para ClientListPage.jsx (más profesional) */
+/* ---------------------------------------------------------------------- */
+
+/* Animación para el título principal (usa keyframes definidos en tailwind.config.js) */
+.animate-fade-in-down-ext {
+  animation: fadeInDownExt 1.2s ease-out forwards;
+}
+
+/* Animación para el encabezado y búsqueda (usa keyframes definidos en tailwind.config.js) */
+.animate-slide-in-from-left-ext {
+  animation: slideInFromLeftExt 1s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+/* Animación para la tabla de clientes y paginación (usa keyframes definidos en tailwind.config.js) */
+.animate-fade-in-up-ext {
+  animation: fadeInUpExt 1s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+/* Animación para el spinner de carga (usa keyframes definidos en tailwind.config.js) */
+.animate-spin-slow {
+  animation: spinSlow 3s linear infinite;
+}
+
+/* Animación de pulso para la barra de búsqueda (usa keyframes definidos en tailwind.config.js) */
+.animate-pulse-search {
+  animation: pulseSearch 2s ease-out infinite;
+}
+
+/* Animación de entrada para filas individuales de la tabla (usa keyframes definidos en tailwind.config.js) */
+.animate-fade-in-row {
+  animation: fadeInRow 0.4s ease-out forwards;
+}
+
+/* Fondo sutil degradado para el cuerpo de la tabla para un toque más profesional */
+.table-body-gradient {
+  background: linear-gradient(to bottom, #FFFFFF, #F8FBFD);
+}
+
+/* Estilo para las celdas de la tabla para mejor padding y lectura */
+.table-cell-padding {
+  padding: 1.25rem 2rem; /* Aumenta el padding para un look más espacioso */
+}
+
+/* Estilo para el input de búsqueda con un fondo más distintivo y un borde sutil */
+.search-input-style {
+  background-color: var(--gris-frio-claro);
+  border: 1px solid #C7D7E0;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* Sombra para los botones de acción */
+.button-action-shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Efecto de "cristal" para la sombra principal de la tabla (floating-table-shadow mejorada) */
+.floating-table-shadow {
+  /* Sombras múltiples para profundidad */
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.35), /* Sombra grande y difusa */
+    0 15px 15px -3px rgba(0, 0, 0, 0.25);   /* Sombra más cercana para definición */
+  backdrop-filter: blur(15px); /* Efecto de cristal */
+  -webkit-backdrop-filter: blur(15px); /* Para compatibilidad con navegadores basados en WebKit */
+  background-color: rgba(255, 255, 255, 0.9); /* Blanco más translúcido */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil de cristal */
+}
+
+/* Animaciones de blob para el fondo (dan un toque orgánico y único) */
+.animate-blob-one {
+  animation: blobOne 18s infinite alternate ease-in-out;
+}
+.animate-blob-two {
+  animation: blobTwo 22s infinite alternate ease-in-out;
+}
+
+/* Asegurarse de que los colores personalizados de Tailwind también estén disponibles como variables CSS */
+:root {
+  --azul-agua: #9ACFE2;
+  --azul-oscuro-metalico: #2C3E50;
+  --gris-frio-claro: #D5DEE3;
+  --blanco-puro: #FFFFFF;
+  --azul-celeste-claro: #B7E0F2;
+}
+>>>>>>> 4240911 (3 vistas realizadas de clientes)
