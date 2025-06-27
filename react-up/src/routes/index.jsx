@@ -14,6 +14,7 @@ import DashboardF from "../pages/Admin/Facturacion/DashboardF";
 import DashboardH from "../pages/Admin/HistorialP/DashboardH";
 import DashboardM from "../pages/Admin/MetodoP/DashboardM";
 import CreacionF from "../pages/Admin/Facturacion/CreaacionF";
+<<<<<<< HEAD
 =======
 // src/routes/index.jsx
 
@@ -42,6 +43,9 @@ import ClientListPage from "../pages/Admin/ClientListPage";
 import ClientPurchaseGraphPage from "../pages/Admin/ClientPurchaseGraphPage"; 
 
 >>>>>>> 4240911 (3 vistas realizadas de clientes)
+=======
+import ListaFacturas from "../pages/Admin/Facturacion/ListaF";
+>>>>>>> 44483a20707e8643f348f17bea7dcad503489476
 
 /*rutas */
 const AppRoutes = () => {
@@ -182,6 +186,16 @@ const AppRoutes = () => {
           </>
         }
 >>>>>>> 4240911 (3 vistas realizadas de clientes)
+      />
+      <Route
+        path="/facturacion/lista"
+        element={
+          <>
+            <Navbar />
+            <ListaFacturas />
+          </>
+        }
+        
       />
     </Routes>
   );

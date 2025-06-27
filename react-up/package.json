@@ -10,6 +10,9 @@
     "start": "serve dist -s -n -L -p $PORT"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@heroicons/react": "^2.2.0",
     "@lottiefiles/react-lottie-player": "^3.6.0",
     "@mui/icons-material": "^6.4.1",
@@ -23,6 +26,7 @@
 >>>>>>> 4240911 (3 vistas realizadas de clientes)
     "framer-motion": "^12.0.6",
     "howler": "^2.2.4",
+    "jspdf": "^3.0.1",
     "lottie-react": "^2.4.1",
     "lottie-web": "^5.12.2",
     "lucide-react": "^0.474.0",
