@@ -13,6 +13,7 @@ import DashboardF from "../pages/Admin/Facturacion/DashboardF";
 import DashboardH from "../pages/Admin/HistorialP/DashboardH";
 import DashboardM from "../pages/Admin/MetodoP/DashboardM";
 import CreacionF from "../pages/Admin/Facturacion/CreaacionF";
+import ListaFacturas from "../pages/Admin/Facturacion/ListaF";
 
 /*rutas */
 const AppRoutes = () => {
@@ -64,6 +65,16 @@ const AppRoutes = () => {
           <>
             <Navbar />
             <CreacionF />
+          </>
+        }
+        
+      />
+      <Route
+        path="/facturacion/lista"
+        element={
+          <>
+            <Navbar />
+            <ListaFacturas />
           </>
         }
         
