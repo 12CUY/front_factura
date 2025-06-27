@@ -19,11 +19,7 @@
     "@mui/material": "^6.4.1",
     "@mui/x-date-pickers": "^7.24.1",
     "@vuepic/vue-datepicker": "^11.0.1",
-<<<<<<< HEAD
-    "chart.js": "^4.4.7",
-=======
     "chart.js": "^4.5.0",
->>>>>>> 4240911 (3 vistas realizadas de clientes)
     "framer-motion": "^12.0.6",
     "howler": "^2.2.4",
     "jspdf": "^3.0.1",
@@ -41,11 +37,7 @@
     "s": "^1.0.0",
     "serve": "^14.2.4",
     "styled-components": "^6.1.14",
-<<<<<<< HEAD
-    "sweetalert2": "^11.15.10",
-=======
     "sweetalert2": "^11.6.13",
->>>>>>> 4240911 (3 vistas realizadas de clientes)
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
@@ -53,21 +45,13 @@
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
-<<<<<<< HEAD
-    "autoprefixer": "^10.4.20",
-=======
     "autoprefixer": "^10.4.21",
->>>>>>> 4240911 (3 vistas realizadas de clientes)
     "eslint": "^9.17.0",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.14.0",
-<<<<<<< HEAD
-    "postcss": "^8.5.1",
-=======
     "postcss": "^8.5.6",
->>>>>>> 4240911 (3 vistas realizadas de clientes)
     "tailwindcss": "^3.4.17",
     "vite": "^6.0.5"
   }

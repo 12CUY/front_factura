@@ -19,7 +19,7 @@ railway up
     "start": "serve dist -s -n -L -p $PORT"
 
 # colores que se ocuparon 
-
+npm run de
     
 Azul agua
 

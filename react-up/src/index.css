@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 /* src/index.css */
->>>>>>> 4240911 (3 vistas realizadas de clientes)
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
 
 @tailwind base;
@@ -12,8 +9,6 @@
 body, * {
   @apply font-sans cursor-custom;
 }
-<<<<<<< HEAD
-=======
 
 /* CLASE PERSONALIZADA PARA EL FONDO DE LA PÁGINA DE CREACIÓN DE CLIENTES Y LISTADO DE CLIENTES */
 .bg-creacion-cliente {
@@ -172,4 +167,3 @@ input:not(.bg-form-gradient) {
   --blanco-puro: #FFFFFF;
   --azul-celeste-claro: #B7E0F2;
 }
->>>>>>> 4240911 (3 vistas realizadas de clientes)
