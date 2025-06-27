@@ -22,6 +22,7 @@ import ClientListPage from "../pages/Admin/Clientes/ClientListPage";
 import ClientPurchaseGraphPage from "../pages/Admin/Clientes/ClientPurchaseGraphPage"; 
 
 import ListaFacturas from "../pages/Admin/Facturacion/ListaF";
+import HistorialC from "../pages/Admin/HistorialP/HistorialC";
 
 /*rutas */
 const AppRoutes = () => {
@@ -135,6 +136,16 @@ const AppRoutes = () => {
           </>
         }
       />
+       <Route
+        path="/historial-clientes"
+        element={
+          <>
+            <Navbar />
+            <HistorialC />
+          </>
+        }
+      />
+
     </Routes>
   );
 };
