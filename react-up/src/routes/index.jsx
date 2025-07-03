@@ -1,51 +1,49 @@
 import { Routes, Route } from "react-router-dom";
-/*rutas de logeo  */
+
+/* Rutas de logeo */
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import RecuperarContraseña from "../pages/Recuperar";
 
-/*el menu*/
+/* El menú */
 import Navbar from "../components/Navbar";
 
-/*rutas de parte de administrador */
+/* Rutas de administrador */
 import DashboardC from "../pages/Admin/Clientes/DashboardC";
 import DashboardF from "../pages/Admin/Facturacion/DashboardF";
 import DashboardH from "../pages/Admin/HistorialP/DashboardH";
 import DashboardM from "../pages/Admin/MetodoP/DashboardM";
 import CreacionF from "../pages/Admin/Facturacion/CreaacionF";
-
-// Importación de ClientCreationPage y ClientListPage
-import ClientCreationPage from "../pages/Admin/Clientes/ClientCreationPage"; 
-import ClientListPage from "../pages/Admin/Clientes/ClientListPage"; 
-
-// ¡NUEVA IMPORTACIÓN!
-import ClientPurchaseGraphPage from "../pages/Admin/Clientes/ClientPurchaseGraphPage"; 
-
 import ListaFacturas from "../pages/Admin/Facturacion/ListaF";
 import HistorialC from "../pages/Admin/HistorialP/HistorialC";
 import PagosP from "../pages/Admin/MetodoP/PagosP";
 import PagosC from "../pages/Admin/MetodoP/PagosCD";
 
-/*rutas */
+/* Páginas de cliente */
+import ClientCreationPage from "../pages/Admin/Clientes/ClientCreationPage";
+import ClientListPage from "../pages/Admin/Clientes/ClientListPage";
+import ClientPurchaseGraphPage from "../pages/Admin/Clientes/ClientPurchaseGraphPage";
+
 const AppRoutes = () => {
   return (
     <Routes>
+      {/* Rutas públicas */}
       <Route path="/" element={<Login />} />
       <Route path="/registro" element={<Register />} />
       <Route path="/recuperar" element={<RecuperarContraseña />} />
-      
-      {/* Ruta para el dashboard principal después del login */}
+
+      {/* Dashboard principal */}
       <Route
-        path="/dashboard" 
+        path="/dashboard"
         element={
           <>
-            <Navbar /> 
-            <DashboardC /> 
+            <Navbar />
+            <DashboardC />
           </>
         }
       />
 
-      {/* Rutas de la parte de administrador que incluyen el Navbar */}
+      {/* Clientes */}
       <Route
         path="/clientes"
         element={
@@ -55,40 +53,35 @@ const AppRoutes = () => {
           </>
         }
       />
-      
-      {/* Ruta para la creación de clientes */}
       <Route
-        path="/clientes/crear" 
+        path="/clientes/crear"
         element={
           <>
-            <Navbar /> 
-            <ClientCreationPage /> 
+            <Navbar />
+            <ClientCreationPage />
           </>
         }
       />
-
-      {/* Ruta para el listado de clientes */}
       <Route
-        path="/clientes/lista" 
+        path="/clientes/lista"
         element={
           <>
-            <Navbar /> 
-            <ClientListPage /> 
+            <Navbar />
+            <ClientListPage />
           </>
         }
       />
-
-      {/* ¡NUEVA RUTA para la gráfica de compras! */}
       <Route
         path="/clientes/graficas"
         element={
           <>
-            <Navbar /> 
-            <ClientPurchaseGraphPage /> 
+            <Navbar />
+            <ClientPurchaseGraphPage />
           </>
         }
       />
 
+      {/* Facturación */}
       <Route
         path="/facturacion"
         element={
@@ -98,27 +91,6 @@ const AppRoutes = () => {
           </>
         }
       />
-      
-      <Route
-        path="/historial"
-        element={
-          <>
-            <Navbar />
-            <DashboardH />
-          </>
-        }
-      />
-      
-      <Route
-        path="/metodo-de-pago"
-        element={
-          <>
-            <Navbar />
-            <DashboardM />
-          </>
-        }
-      />
-      
       <Route
         path="/facturacion/crear"
         element={
@@ -128,7 +100,6 @@ const AppRoutes = () => {
           </>
         }
       />
-      
       <Route
         path="/facturacion/lista"
         element={
@@ -138,7 +109,18 @@ const AppRoutes = () => {
           </>
         }
       />
-       <Route
+
+      {/* Historial */}
+      <Route
+        path="/historial"
+        element={
+          <>
+            <Navbar />
+            <DashboardH />
+          </>
+        }
+      />
+      <Route
         path="/historial-clientes"
         element={
           <>
@@ -148,6 +130,16 @@ const AppRoutes = () => {
         }
       />
 
+      {/* Métodos de pago */}
+      <Route
+        path="/metodo-de-pago"
+        element={
+          <>
+            <Navbar />
+            <DashboardM />
+          </>
+        }
+      />
       <Route
         path="/metodo-pago/paypal"
         element={
@@ -156,9 +148,8 @@ const AppRoutes = () => {
             <PagosP />
           </>
         }
-        
       />
-       <Route
+      <Route
         path="/metodo-pago/cancelados"
         element={
           <>
@@ -166,7 +157,6 @@ const AppRoutes = () => {
             <PagosC />
           </>
         }
-        
       />
     </Routes>
   );

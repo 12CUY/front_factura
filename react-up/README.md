@@ -19,7 +19,15 @@ railway up
     "start": "serve dist -s -n -L -p $PORT"
 
 # colores que se ocuparon 
+<<<<<<< HEAD
 npm run de
+=======
+<<<<<<< HEAD
+
+=======
+npm run de
+>>>>>>> 230336d (Subiendo todo el proyecto desde Git Bash)
+>>>>>>> 108595f64b2f471a0faebd5a9feaea3ff59635b6
     
 Azul agua
 

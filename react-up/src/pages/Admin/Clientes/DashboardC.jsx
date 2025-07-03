@@ -80,8 +80,7 @@ const DashboardC = () => {
                   className="h-24 w-24 object-contain drop-shadow-md"
                 />
               </div>
-              <h2 className="text-xl font-semibold mb-2 text-gray-800">Clientes</h2>
-              <p className="text-gray-600">Administración completa del módulo</p>
+
             </section>
           </div>
 

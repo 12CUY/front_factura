@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -8,10 +9,12 @@ export default {
     extend: {
       cursor: {
         custom: "url('/gotar(3).png'), pointer",
+
       },
       fontFamily: {
         sans: ['"Open Sans"', 'sans-serif'],
       },
+
       colors: {
         'azul-agua': '#9ACFE2',
         'azul-oscuro-metalico': '#2C3E50',

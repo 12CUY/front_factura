@@ -2,9 +2,9 @@ import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import invoicesAnimation from "../../../animation/invoces.json"; // Corrige ruta si es necesario
 
+
 const DashboardF = () => {
   const navigate = useNavigate();
-
   const cards = [
     {
       id: 1,
@@ -49,7 +49,7 @@ const DashboardF = () => {
   };
 
   return (
-    <div 
+    <div
       className="min-h-screen pt-20"
       style={{
         backgroundImage: "url('/login.jpg')",
@@ -59,6 +59,7 @@ const DashboardF = () => {
         backgroundAttachment: "fixed"
       }}
     >
+
       <div className="absolute inset-0 bg-black/10"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
@@ -67,7 +68,6 @@ const DashboardF = () => {
             Facturación
           </h1>
         </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="space-y-6">
             <section className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center h-full transition-all duration-500 hover:shadow-xl backdrop-blur-sm bg-white/80">
@@ -136,9 +136,9 @@ const DashboardF = () => {
             ))}
           </div>
         </div>
-      </div>
+    </div>
     </div>
   );
-};
+}
 
 export default DashboardF;

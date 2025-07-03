@@ -1,31 +1,38 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import PropTypes from 'prop-types'; // Importamos PropTypes
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import PropTypes from "prop-types"; // Importamos PropTypes
 
 // Componente InputCard con validación de props
 const InputCard = ({ children, title, delay }) => (
   <div
     className={`bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl cursor-pointer border border-transparent hover:border-white/30 p-6
-      ${delay ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-    style={{ 
+      ${delay ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+    style={{
       transitionDelay: `${delay}ms`,
-      animation: `${delay ? 'fadeInUp 0.5s ease-out' : ''}`
+      animation: `${delay ? "fadeInUp 0.5s ease-out" : ""}`,
     }}
   >
     {title && (
       <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
         <span className="bg-blue-100 text-blue-500 rounded-full p-2 mr-3">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+              clipRule="evenodd"
+            />
           </svg>
         </span>
         {title}
       </h3>
     )}
-    <div className="space-y-4">
-      {children}
-    </div>
+    <div className="space-y-4">{children}</div>
   </div>
 );
 
@@ -33,21 +40,21 @@ const InputCard = ({ children, title, delay }) => (
 InputCard.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
-  delay: PropTypes.number.isRequired
+  delay: PropTypes.number.isRequired,
 };
 
 const ClientCreationPage = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
-    nombre: '',
-    apellido: '',
-    cedula: '',
-    email: '',
-    telefono: '',
-    direccion: '',
-    fechaNacimiento: '',
-    tipoCliente: 'regular'
+    nombre: "",
+    apellido: "",
+    cedula: "",
+    email: "",
+    telefono: "",
+    direccion: "",
+    fechaNacimiento: "",
+    tipoCliente: "regular",
   });
 
   useEffect(() => {
@@ -56,61 +63,67 @@ const ClientCreationPage = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       // Validación básica
-      if (!formData.nombre || !formData.apellido || !formData.cedula || !formData.email || !formData.telefono || !formData.direccion) {
+      if (
+        !formData.nombre ||
+        !formData.apellido ||
+        !formData.cedula ||
+        !formData.email ||
+        !formData.telefono ||
+        !formData.direccion
+      ) {
         await Swal.fire({
-          title: 'Campos requeridos',
-          text: 'Por favor complete todos los campos obligatorios',
-          icon: 'warning',
-          confirmButtonText: 'Entendido'
+          title: "Campos requeridos",
+          text: "Por favor complete todos los campos obligatorios",
+          icon: "warning",
+          confirmButtonText: "Entendido",
         });
         return;
       }
 
-      console.log('Datos del cliente:', formData);
+      console.log("Datos del cliente:", formData);
       // Simulación de éxito en el registro
       await Swal.fire({
-        title: '¡Éxito!',
-        text: 'El cliente ha sido registrado correctamente',
-        icon: 'success',
-        confirmButtonText: 'Aceptar'
+        title: "¡Éxito!",
+        text: "El cliente ha sido registrado correctamente",
+        icon: "success",
+        confirmButtonText: "Aceptar",
       });
-      
-      navigate('/clientes/lista');
-      
+
+      navigate("/clientes/lista");
     } catch (error) {
       await Swal.fire({
-        title: 'Error',
-        text: 'Ocurrió un error al registrar el cliente',
-        icon: 'error',
-        confirmButtonText: 'Entendido'
+        title: "Error",
+        text: "Ocurrió un error al registrar el cliente",
+        icon: "error",
+        confirmButtonText: "Entendido",
       });
     }
   };
 
   return (
-    <div 
+    <div
       className="min-h-screen pt-16"
       style={{
         backgroundImage: "url('/login.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed"
+        backgroundAttachment: "fixed",
       }}
     >
       <div className="absolute inset-0 bg-black/10"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         <div className="mb-8 text-center lg:text-left">
           <h1 className="text-3xl font-bold text-gray-900">
@@ -121,11 +134,19 @@ const ClientCreationPage = () => {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <form
+          onSubmit={handleSubmit}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6"
+        >
           {/* Card 1: Información Personal */}
           <InputCard title="Información Personal" delay={isVisible ? 100 : 0}>
             <div>
-              <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-1">Nombre*</label>
+              <label
+                htmlFor="nombre"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Nombre*
+              </label>
               <input
                 id="nombre"
                 name="nombre"
@@ -137,7 +158,12 @@ const ClientCreationPage = () => {
               />
             </div>
             <div>
-              <label htmlFor="apellido" className="block text-sm font-medium text-gray-700 mb-1">Apellido*</label>
+              <label
+                htmlFor="apellido"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Apellido*
+              </label>
               <input
                 id="apellido"
                 name="apellido"
@@ -149,7 +175,12 @@ const ClientCreationPage = () => {
               />
             </div>
             <div>
-              <label htmlFor="cedula" className="block text-sm font-medium text-gray-700 mb-1">Cédula/RUC*</label>
+              <label
+                htmlFor="cedula"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Cédula/RUC*
+              </label>
               <input
                 id="cedula"
                 name="cedula"
@@ -163,9 +194,17 @@ const ClientCreationPage = () => {
           </InputCard>
 
           {/* Card 2: Información de Contacto */}
-          <InputCard title="Información de Contacto" delay={isVisible ? 200 : 0}>
+          <InputCard
+            title="Información de Contacto"
+            delay={isVisible ? 200 : 0}
+          >
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email*</label>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Email*
+              </label>
               <input
                 id="email"
                 name="email"
@@ -177,7 +216,12 @@ const ClientCreationPage = () => {
               />
             </div>
             <div>
-              <label htmlFor="telefono" className="block text-sm font-medium text-gray-700 mb-1">Teléfono*</label>
+              <label
+                htmlFor="telefono"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Teléfono*
+              </label>
               <input
                 id="telefono"
                 name="telefono"
@@ -189,7 +233,12 @@ const ClientCreationPage = () => {
               />
             </div>
             <div>
-              <label htmlFor="direccion" className="block text-sm font-medium text-gray-700 mb-1">Dirección*</label>
+              <label
+                htmlFor="direccion"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Dirección*
+              </label>
               <input
                 id="direccion"
                 name="direccion"
@@ -205,7 +254,12 @@ const ClientCreationPage = () => {
           {/* Card 3: Información Adicional */}
           <InputCard title="Información Adicional" delay={isVisible ? 300 : 0}>
             <div>
-              <label htmlFor="fechaNacimiento" className="block text-sm font-medium text-gray-700 mb-1">Fecha Nacimiento</label>
+              <label
+                htmlFor="fechaNacimiento"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Fecha Nacimiento
+              </label>
               <input
                 id="fechaNacimiento"
                 name="fechaNacimiento"
@@ -216,7 +270,12 @@ const ClientCreationPage = () => {
               />
             </div>
             <div>
-              <label htmlFor="tipoCliente" className="block text-sm font-medium text-gray-700 mb-1">Tipo de Cliente</label>
+              <label
+                htmlFor="tipoCliente"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Tipo de Cliente
+              </label>
               <select
                 id="tipoCliente"
                 name="tipoCliente"

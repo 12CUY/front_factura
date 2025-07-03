@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -34,7 +34,7 @@ const ClientListPage = () => {
   }, []);
 
   const filteredClients = clients.filter(client =>
-    `${client.firstName} ${client.lastName}`.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    (`${client.firstName} ${client.lastName}`).toLowerCase().includes(searchTerm.toLowerCase()) ||
     client.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
     client.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
     client.ruc.toLowerCase().includes(searchTerm.toLowerCase()) ||

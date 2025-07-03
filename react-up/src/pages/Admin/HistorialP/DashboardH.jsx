@@ -14,7 +14,7 @@ const DashboardH = () => {
       bgColor: "bg-indigo-50",
       iconColor: "text-indigo-500",
     },
-    {
+    {/*
       id: 2,
       title: "Estadísticas",
       description: "Gráficos y análisis de pagos",
@@ -23,6 +23,7 @@ const DashboardH = () => {
       bgColor: "bg-purple-50",
       iconColor: "text-purple-500",
     },
+    */}
   ];
 
   const handleCardClick = (route) => {
