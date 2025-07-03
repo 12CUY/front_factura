@@ -80,7 +80,11 @@ const DashboardC = () => {
                   className="h-24 w-24 object-contain drop-shadow-md"
                 />
               </div>
+<<<<<<< HEAD
               <h2 className="text-xl font-semibold mb-2 text-gray-800">Clientes y Tiendas</h2>
+=======
+              <h2 className="text-xl font-semibold mb-2 text-gray-800">Clientes</h2>
+>>>>>>> 230336d (Subiendo todo el proyecto desde Git Bash)
               <p className="text-gray-600">Administración completa del módulo</p>
             </section>
           </div>

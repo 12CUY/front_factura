@@ -1,9 +1,17 @@
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
+=======
+import Lottie from "lottie-react";
+import invoicesAnimation from "../../../animation/invoces.json"; // Corrige ruta si es necesario
+>>>>>>> 230336d (Subiendo todo el proyecto desde Git Bash)
 
 const DashboardF = () => {
   const navigate = useNavigate();
 
+<<<<<<< HEAD
   // Datos de las cards con colores personalizados
+=======
+>>>>>>> 230336d (Subiendo todo el proyecto desde Git Bash)
   const cards = [
     {
       id: 1,
@@ -58,18 +66,25 @@ const DashboardF = () => {
         backgroundAttachment: "fixed"
       }}
     >
+<<<<<<< HEAD
       {/* Fondo semitransparente para mejorar legibilidad */}
       <div className="absolute inset-0 bg-black/10"></div>
       
       {/* Contenido principal */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         {/* Título responsive */}
+=======
+      <div className="absolute inset-0 bg-black/10"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+>>>>>>> 230336d (Subiendo todo el proyecto desde Git Bash)
         <div className="mb-8 text-center lg:text-left">
           <h1 className="text-3xl font-bold text-gray-900">
             Facturación
           </h1>
         </div>
 
+<<<<<<< HEAD
         {/* Grid de contenido */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Columna 1 - Sección con imagen */}
@@ -89,6 +104,16 @@ const DashboardF = () => {
                   className="h-24 w-24 object-contain drop-shadow-md"
                 />
               </div>
+=======
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="space-y-6">
+            <section className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center h-full transition-all duration-500 hover:shadow-xl backdrop-blur-sm bg-white/80">
+              {/* Aquí está la animación en vez de la imagen */}
+              <div className="mb-4 w-24 h-24">
+                <Lottie animationData={invoicesAnimation} loop={true} />
+              </div>
+
+>>>>>>> 230336d (Subiendo todo el proyecto desde Git Bash)
               <h2 className="text-xl font-semibold mb-2 text-gray-800">
                 Módulo de Facturación
               </h2>
@@ -98,7 +123,10 @@ const DashboardF = () => {
             </section>
           </div>
 
+<<<<<<< HEAD
           {/* Columna 2 - Cards animadas */}
+=======
+>>>>>>> 230336d (Subiendo todo el proyecto desde Git Bash)
           <div className="space-y-6">
             {cards.map((card) => (
               <div

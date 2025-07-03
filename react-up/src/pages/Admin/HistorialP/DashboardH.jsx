@@ -10,7 +10,11 @@ const DashboardH = () => {
       title: "Historial Completo de los Clientes",
       description: "Todos los procesos de pago registrados",
       icon: "https://cdn-icons-png.flaticon.com/512/3652/3652191.png",
+<<<<<<< HEAD
       route: "/historial/completo",
+=======
+      route: "/historial-clientes",
+>>>>>>> 230336d (Subiendo todo el proyecto desde Git Bash)
       bgColor: "bg-indigo-50",
       iconColor: "text-indigo-500",
     },
