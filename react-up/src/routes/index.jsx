@@ -23,6 +23,8 @@ import ClientPurchaseGraphPage from "../pages/Admin/Clientes/ClientPurchaseGraph
 
 import ListaFacturas from "../pages/Admin/Facturacion/ListaF";
 import HistorialC from "../pages/Admin/HistorialP/HistorialC";
+import PagosP from "../pages/Admin/MetodoP/PagosP";
+import PagosC from "../pages/Admin/MetodoP/PagosCD";
 
 /*rutas */
 const AppRoutes = () => {
@@ -146,6 +148,26 @@ const AppRoutes = () => {
         }
       />
 
+      <Route
+        path="/metodo-pago/paypal"
+        element={
+          <>
+            <Navbar />
+            <PagosP />
+          </>
+        }
+        
+      />
+       <Route
+        path="/metodo-pago/cancelados"
+        element={
+          <>
+            <Navbar />
+            <PagosC />
+          </>
+        }
+        
+      />
     </Routes>
   );
 };
