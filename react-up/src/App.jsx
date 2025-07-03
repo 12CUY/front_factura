@@ -1,14 +1,15 @@
 import { BrowserRouter as Router } from "react-router-dom";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import AppRoutes from "./routes";
 
 function App() {
   return (
     <div className="cursor-custom">
-      {" "}
-      {/* Aplica la clase global aquí */}
-      <Router>
-        <AppRoutes />
-      </Router>
+      <PayPalScriptProvider options={{ clientId: "YOUR_PAYPAL_CLIENT_ID" }}>
+        <Router>
+          <AppRoutes />
+        </Router>
+      </PayPalScriptProvider>
     </div>
   );
 }
