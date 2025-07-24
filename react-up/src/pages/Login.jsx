@@ -34,7 +34,7 @@ const Login = () => {
         icon: "success",
         confirmButtonText: "Continuar",
       }).then(() => {
-        setNavigatingTo("/facturacion");
+        setNavigatingTo("/dashboard");
         setLoading(true);
 
         setTimeout(() => {
@@ -42,7 +42,7 @@ const Login = () => {
           setDataLoaded(true);
 
           setTimeout(() => {
-            navigate("/facturacion");
+            navigate("/dashboard");
           }, 200);
         }, 200);
       });

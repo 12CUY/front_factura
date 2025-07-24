@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       cursor: {
-        custom: "url('/gotar(3).png'), pointer",
+        custom: "url('/gim(2).png'), pointer",
 
       },
       fontFamily: {

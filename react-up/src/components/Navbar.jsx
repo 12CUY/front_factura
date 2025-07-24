@@ -60,9 +60,10 @@ const Navbar = () => {
           id="menu"
           className="flex bg-[#D5DEE3] rounded-full shadow-lg px-4 sm:px-6 py-2 gap-2 sm:gap-4"
         >
+          {/* Dashboard */}
           <button
-            onClick={() => handleNavigation("/facturacion")}
-            id="facturacion"
+            onClick={() => handleNavigation("/dashboard")}
+            id="dashboard"
             className="flex flex-col items-center justify-center rounded-full px-3 sm:px-4 py-2 text-[#2C3E50] bg-[#9ACFE2] text-white"
           >
             <svg
@@ -71,16 +72,17 @@ const Navbar = () => {
               fill="currentColor"
               viewBox="0 0 24 24"
             >
-              <path d="M21 8V7l-3 2-3-2v1l3 2 3-2zm-6 4v1l3 2 3-2v-1l-3 2-3-2zm-6 3h5v2H9v-2zm0-4h8v2H9v-2zm0-4h8v2H9V7zm-6 3h2v10H3V10z" />
+              <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
             </svg>
             {!isMobile && (
-              <span className="text-xs sm:text-sm font-medium">Facturación</span>
+              <span className="text-xs sm:text-sm font-medium">Dashboard</span>
             )}
           </button>
 
+          {/* Actividades */}
           <button
-            onClick={() => handleNavigation("/metodo-de-pago")}
-            id="metodo-de-pago"
+            onClick={() => handleNavigation("/dashboardA")}
+            id="actividades"
             className="flex flex-col items-center justify-center rounded-full px-3 sm:px-4 py-2 text-[#2C3E50]"
           >
             <svg
@@ -89,16 +91,17 @@ const Navbar = () => {
               fill="currentColor"
               viewBox="0 0 24 24"
             >
-              <path d="M4 6h16v2H4zm0 4h16v10H4zm2 2v2h4v-2H6z" />
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/>
             </svg>
             {!isMobile && (
-              <span className="text-xs sm:text-sm font-medium">Método de pago</span>
+              <span className="text-xs sm:text-sm font-medium">Actividades</span>
             )}
           </button>
 
+          {/* Usuarios */}
           <button
-            onClick={() => handleNavigation("/clientes")}
-            id="clientes"
+            onClick={() => handleNavigation("/dashboardU")}
+            id="usuarios"
             className="flex flex-col items-center justify-center rounded-full px-3 sm:px-4 py-2 text-[#2C3E50]"
           >
             <svg
@@ -107,16 +110,17 @@ const Navbar = () => {
               fill="currentColor"
               viewBox="0 0 24 24"
             >
-              <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5z" />
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
             </svg>
             {!isMobile && (
-              <span className="text-xs sm:text-sm font-medium">Clientes</span>
+              <span className="text-xs sm:text-sm font-medium">Usuarios</span>
             )}
           </button>
 
+          {/* Gestión Comercial */}
           <button
-            onClick={() => handleNavigation("/historial")}
-            id="historial"
+            onClick={() => handleNavigation("/dashboardC")}
+            id="comercial"
             className="flex flex-col items-center justify-center rounded-full px-3 sm:px-4 py-2 text-[#2C3E50]"
           >
             <svg
@@ -125,13 +129,71 @@ const Navbar = () => {
               fill="currentColor"
               viewBox="0 0 24 24"
             >
-              <path d="M13 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9h-2c0 3.87-3.13 7-7 7s-7-3.13-7-7 3.13-7 7-7V3zm0 5h-1v5h5v-1h-4V8z" />
+              <path d="M16 6V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4v2h16V6h-4zm-6-2h4v2h-4V4zM4 18v-2h16v2H4zm0-4v-2h16v2H4z"/>
             </svg>
             {!isMobile && (
-              <span className="text-xs sm:text-sm font-medium">Historial</span>
+              <span className="text-xs sm:text-sm font-medium">Comercial</span>
             )}
           </button>
 
+          {/* Entrenamiento */}
+          <button
+            onClick={() => handleNavigation("/dashboardE")}
+            id="entrenamiento"
+            className="flex flex-col items-center justify-center rounded-full px-3 sm:px-4 py-2 text-[#2C3E50]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 sm:h-6 sm:w-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.82V9L12 3z"/>
+            </svg>
+            {!isMobile && (
+              <span className="text-xs sm:text-sm font-medium">Entrenamiento</span>
+            )}
+          </button>
+
+          {/* Inventario */}
+          <button
+            onClick={() => handleNavigation("/dashboardI")}
+            id="inventario"
+            className="flex flex-col items-center justify-center rounded-full px-3 sm:px-4 py-2 text-[#2C3E50]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 sm:h-6 sm:w-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M20 2H4c-1 0-2 .9-2 2v3.01c0 .72.43 1.34 1 1.69V20c0 1.1 1.1 2 2 2h14c.9 0 2-.9 2-2V8.7c.57-.35 1-.97 1-1.69V4c0-1.1-1-2-2-2zm-5 12H9v-2h6v2zm3-4H6V4h12v6z"/>
+            </svg>
+            {!isMobile && (
+              <span className="text-xs sm:text-sm font-medium">Inventario</span>
+            )}
+          </button>
+
+          {/* Configuración */}
+          <button
+            onClick={() => handleNavigation("/dashboardConfiguracion")}
+            id="configuracion"
+            className="flex flex-col items-center justify-center rounded-full px-3 sm:px-4 py-2 text-[#2C3E50]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 sm:h-6 sm:w-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
+            </svg>
+            {!isMobile && (
+              <span className="text-xs sm:text-sm font-medium">Configuración</span>
+            )}
+          </button>
+
+          {/* Salir */}
           <button
             onClick={handleLogout}
             id="logout"
