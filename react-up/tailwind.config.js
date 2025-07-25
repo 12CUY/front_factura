@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       cursor: {
-        custom: "pointer",
+        custom: "url('/icons.png'), pointer",
 
       },
       fontFamily: {

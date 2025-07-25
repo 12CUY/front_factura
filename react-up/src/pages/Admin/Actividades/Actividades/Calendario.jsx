@@ -87,7 +87,7 @@ const CalendarioPersonalizado = () => {
     <div
       className="min-h-screen pt-16 bg-gray-50"
       style={{
-        backgroundImage: "url('/login.jpg')",
+        backgroundImage: "url('/gimnasio_actividades.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

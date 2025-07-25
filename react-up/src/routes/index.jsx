@@ -26,6 +26,8 @@ import HorarioClass from "../pages/Admin/Actividades/Clases/Horarioclases";
 import RegistraVista from "../pages/Admin/Actividades/Visitas/Registrarvisita";
 import HistorialV from "../pages/Admin/Actividades/Visitas/Historialvisitas";
 import Reportes from "../pages/Admin/Actividades/Visitas/Reportes";
+import Creacionusuario from "../pages/Admin/Usuarios/usuariosS/Creacionusuario";
+import Permisoyroles from "../pages/Admin/Usuarios/usuariosS/Permisoyroles";
 
 /* Páginas de cliente */
 const AppRoutes = () => {
@@ -149,7 +151,7 @@ const AppRoutes = () => {
         }
       />
 
-      {/* usuarios */}
+      {/* usuarios new */}
       <Route
         path="/dashboardU"
         element={
@@ -159,6 +161,27 @@ const AppRoutes = () => {
           </>
         }
       />
+      {/* usuarios creacion  */}
+      <Route
+        path="/dashboardU/CreacionUsuario"
+        element={
+          <>
+            <Navbar />
+            <Creacionusuario />
+          </>
+        }
+      />
+      {/* usuarios permisos  */}
+      <Route
+        path="/dashboardU/PermisosRoles"
+        element={
+          <>
+            <Navbar />
+            <Permisoyroles />
+          </>
+        }
+      />
+
       {/* comercial */}
       <Route
         path="/dashboardC"

@@ -16,7 +16,6 @@ const Registro = () => {
   const handleNavigation = (route) => {
     setNavigatingTo(route);
     setLoading(true);
-    
     setTimeout(() => {
       navigate(route);
     }, 1000);
@@ -57,7 +56,7 @@ const Registro = () => {
     if (navigatingTo === "/dashboard") loadingText = "Completando registro...";
 
     return (
-      <div className="flex items-center justify-center h-screen bg-[url('/recuperar.jpg')] bg-cover bg-center px-4">
+      <div className="flex items-center justify-center h-screen bg-[url('/gimnasioregistro.jpg')] bg-cover bg-center px-4">
         <div className="text-center bg-white bg-opacity-90 p-8 rounded-lg">
           <div className="border-t-4 border-[#2C3E50] border-solid w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full animate-spin mx-auto"></div>
           <p className="mt-4 text-lg sm:text-xl md:text-2xl text-[#2C3E50]">
@@ -69,7 +68,7 @@ const Registro = () => {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen bg-cover bg-center bg-[url('/registro.jpg')]">
+    <div className="flex justify-center items-center h-screen bg-cover bg-center bg-[url('/gimnasioregistro.jpg')]">
       <motion.div
         className="flex w-full max-w-4xl bg-[#D5DEE3] rounded-lg shadow-xl"
         initial={{ opacity: 0, x: -100 }}
@@ -78,7 +77,7 @@ const Registro = () => {
       >
         <div
           className="hidden lg:block w-full lg:w-1/2 h-[300px] lg:h-auto bg-cover bg-center bg-no-repeat rounded-lg overflow-hidden"
-          style={{ backgroundImage: "url('/registro.jpg')" }}
+          style={{ backgroundImage: "url('/gimnasioregistro.jpg')" }}
         ></div>
 
         <div className="w-full lg:w-1/2 p-8">

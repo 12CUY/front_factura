@@ -63,7 +63,7 @@ const Login = () => {
     if (navigatingTo === "/dashboard") loadingText = "Iniciando sesión...";
 
     return (
-      <div className="flex items-center justify-center h-screen bg-[url('/login.jpg')] bg-cover bg-center px-4">
+      <div className="flex items-center justify-center h-screen bg-[url('/gimnasiologin.jpg')] bg-cover bg-center px-4">
         <div className="text-center bg-white bg-opacity-90 p-8 rounded-lg">
           <div className="border-t-4 border-[#2C3E50] border-solid w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full animate-spin mx-auto"></div>
           <p className="mt-4 text-lg sm:text-xl md:text-2xl text-[#2C3E50]">
@@ -76,7 +76,7 @@ const Login = () => {
 
   if (dataLoaded) {
     return (
-      <div className="flex items-center justify-center h-screen bg-[url('/login.jpg')] bg-cover bg-center px-4">
+      <div className="flex items-center justify-center h-screen bg-[url('/gimnasiologin.jpg')] bg-cover bg-center px-4">
         <div className="text-center bg-white bg-opacity-90 p-8 rounded-lg">
           <p className="text-lg sm:text-xl md:text-2xl text-[#2C3E50]">
             ¡Datos cargados con éxito!
@@ -87,7 +87,7 @@ const Login = () => {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen bg-cover bg-center bg-[url('/login.jpg')]">
+    <div className="flex justify-center items-center h-screen bg-cover bg-center bg-[url('/gimnasiologin.jpg')]">
       <motion.div
         className="flex w-full max-w-4xl bg-[#D5DEE3] rounded-lg shadow-xl"
         initial={{ opacity: 0 }}

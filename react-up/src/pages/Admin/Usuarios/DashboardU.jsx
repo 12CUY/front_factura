@@ -13,7 +13,7 @@ const DashboardU = () => {
           title: "Creación de Usuario",
           description: "Registrar nuevo usuario del sistema",
           icon: "https://cdn-icons-png.flaticon.com/512/3033/3033143.png",
-          route: "/usuarios/crear",
+          route: "/dashboardU/CreacionUsuario",
           bgColor: "bg-indigo-50",
           iconColor: "text-indigo-500",
         },
@@ -22,7 +22,7 @@ const DashboardU = () => {
           title: "Permisos y Roles",
           description: "Gestionar permisos de usuarios",
           icon: "https://cdn-icons-png.flaticon.com/512/1570/1570930.png",
-          route: "/usuarios/permisos",
+          route: "/dashboardU/PermisosRoles",
           bgColor: "bg-purple-50",
           iconColor: "text-purple-500",
         },
@@ -105,7 +105,7 @@ const DashboardU = () => {
     <div
       className="min-h-screen pt-16 bg-gray-50"
       style={{
-        backgroundImage: "url('/login.jpg')",
+        backgroundImage: "url('/gimnasio_usarios.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -118,7 +118,7 @@ const DashboardU = () => {
       {/* Contenido principal */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         {/* Título principal */}
-        <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+        <h1 className="text-3xl font-bold text-white mb-8 text-center">
           Panel de Administración
         </h1>
 
@@ -127,7 +127,7 @@ const DashboardU = () => {
           {sections.map((section, index) => (
             <div key={index} className="space-y-6">
               {/* Título de sección */}
-              <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2">
+              <h2 className="text-2xl font-semibold text-white border-b pb-2">
                 {section.title}
               </h2>
 

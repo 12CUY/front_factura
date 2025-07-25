@@ -57,7 +57,7 @@ const ProgramarClass = () => {
 
   return (
     <div className="min-h-screen pt-16 bg-gray-50" style={{
-      backgroundImage: "url('/login.jpg')",
+      backgroundImage: "url('/gimnasio_actividades.jpg')",
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
@@ -70,7 +70,7 @@ const ProgramarClass = () => {
           Programar Nueva Clase
         </h1>
 
-        <div className="bg-white rounded-xl shadow-lg p-6 backdrop-blur-sm bg-white/80">
+        <div className="bg-white rounded-xl shadow-lg p-4 backdrop-blur-sm bg-white/80">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>

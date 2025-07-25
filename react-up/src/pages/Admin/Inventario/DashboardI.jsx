@@ -48,7 +48,7 @@ const DashboardInventario = () => {
     <div 
       className="min-h-screen pt-16 bg-gray-50"
       style={{
-        backgroundImage: "url('/login.jpg')",
+        backgroundImage: "url('/gimnasio_comercial_productos.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -61,7 +61,7 @@ const DashboardInventario = () => {
       {/* Contenido principal */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         {/* Título principal */}
-        <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+        <h1 className="text-3xl font-bold text-white mb-8 text-center">
           Sistema de Inventario
         </h1>
 
@@ -70,7 +70,7 @@ const DashboardInventario = () => {
           {sections.map((section, index) => (
             <div key={index} className="space-y-6">
               {/* Título de sección */}
-              <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2">
+              <h2 className="text-2xl font-semibold text-white border-b pb-2">
                 {section.title}
               </h2>
 
