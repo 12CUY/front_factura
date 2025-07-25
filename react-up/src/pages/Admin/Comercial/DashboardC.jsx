@@ -75,15 +75,6 @@ const DashboardC = () => {
       title: "Pagos",
       cards: [
         {
-          id: 7,
-          title: "Registrar Pago",
-          description: "Registrar nuevos pagos de clientes",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132771.png",
-          route: "/pagos/registrar",
-          bgColor: "bg-red-50",
-          iconColor: "text-red-500"
-        },
-        {
           id: 8,
           title: "Métodos de Pago",
           description: "Configurar formas de pago aceptadas",
@@ -103,39 +94,6 @@ const DashboardC = () => {
         }
       ],
       mainIcon: "https://cdn-icons-png.flaticon.com/512/3132/3132771.png"
-    },
-    {
-      title: "Historial de Pagos",
-      cards: [
-        {
-          id: 10,
-          title: "Consultar Pagos",
-          description: "Buscar y visualizar pagos registrados",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132805.png",
-          route: "/historial-pagos/consultar",
-          bgColor: "bg-green-50",
-          iconColor: "text-green-500"
-        },
-        {
-          id: 11,
-          title: "Reportes Financieros",
-          description: "Generar reportes de ingresos",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132797.png",
-          route: "/historial-pagos/reportes",
-          bgColor: "bg-blue-50",
-          iconColor: "text-blue-500"
-        },
-        {
-          id: 12,
-          title: "Reembolsos",
-          description: "Gestionar devoluciones de pagos",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132762.png",
-          route: "/historial-pagos/reembolsos",
-          bgColor: "bg-purple-50",
-          iconColor: "text-purple-500"
-        }
-      ],
-      mainIcon: "https://cdn-icons-png.flaticon.com/512/3132/3132805.png"
     },
     {
       title: "Ventas de Productos",

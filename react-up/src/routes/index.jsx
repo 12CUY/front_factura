@@ -16,9 +16,12 @@ import DashboardC from "../pages/Admin/Comercial/DashboardC";
 import DashboardEntrenamiento from "../pages/Admin/Entrenamiento/DashboardE";
 import DashboardInventario from "../pages/Admin/Inventario/DashboardI";
 import DashboardConfiguracion from "../pages/Admin/Configuracion/DashboardCo";
+/* rutas de actividades */
+import CrearActividad from "../pages/Admin/Actividades/actividades/Crear";
+import ListaActividades from "../pages/Admin/Actividades/actividades/listado";
+import CalendarioActividades from "../pages/Admin/Actividades/actividades/calendario";
 
 /* Páginas de cliente */
-
 const AppRoutes = () => {
   return (
     <Routes>
@@ -48,6 +51,37 @@ const AppRoutes = () => {
           </>
         }
       />
+      {/* crear actividades */}
+      <Route
+        path="/dashboardA/crear"
+        element={
+          <>
+            <Navbar />
+            <CrearActividad />
+          </>
+        }
+      />
+      {/* lista actividades */}
+      <Route
+        path="/dashboardA/lista"
+        element={
+          <>
+            <Navbar />
+            <ListaActividades />
+          </>
+        }
+      />
+      {/* calendario actividades */}
+      <Route
+        path="/dashboardA/calendario"
+        element={
+          <>
+            <Navbar />
+            <CalendarioActividades />
+          </>
+        }
+      />
+
       {/* usuarios */}
       <Route
         path="/dashboardU"

@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config}   url('/gim(2).png')*/
 export default {
 
   content: [
@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       cursor: {
-        custom: "url('/gim(2).png'), pointer",
+        custom: "pointer",
 
       },
       fontFamily: {

@@ -96,7 +96,7 @@ const Login = () => {
       >
         <div
           className="hidden lg:block w-full lg:w-1/2 h-[300px] lg:h-auto bg-cover bg-center bg-no-repeat rounded-lg overflow-hidden"
-          style={{ backgroundImage: "url('/login.jpg')" }}
+          style={{ backgroundImage: "url('/gimnasiologin.jpg')" }}
         ></div>
 
         <div className="w-full lg:w-1/2 p-8">
