@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { FiEdit2, FiTrash2, FiEye, FiX, FiClock, FiUser } from "react-icons/fi";
+import { FiEdit2, FiTrash2, FiEye, FiClock, FiUser, FiX } from "react-icons/fi";
+import Swal from "sweetalert2";
 
-// Datos de ejemplo (en una app real vendrían de una API)
+// Datos de ejemplo
 const actividadesEjemplo = [
   {
     id: 1,
@@ -15,57 +16,19 @@ const actividadesEjemplo = [
     instructor: {
       nombre: "María López",
       cedula: "123456789",
-      especialidad: "Yoga Terapéutico",
+      especialidad: "Yoga Terapéutico"
     },
-    imagen:
-      "https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    horarios: ["Lunes 8:00 AM", "Miércoles 8:00 AM"],
+    imagen: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    horarios: ["Lunes 8:00 AM", "Miércoles 8:00 AM"]
   },
-  {
-    id: 2,
-    nombre: "Crossfit Intenso",
-    categoria: "Crossfit",
-    descripcion:
-      "Entrenamiento funcional de alta intensidad para todos los niveles",
-    duracion: 45,
-    capacidad: 15,
-    dificultad: "alta",
-    instructor: {
-      nombre: "Carlos Méndez",
-      cedula: "987654321",
-      especialidad: "Entrenamiento Funcional",
-    },
-    imagen:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    horarios: ["Martes 6:00 PM", "Jueves 6:00 PM", "Sábado 9:00 AM"],
-  },
-  {
-    id: 3,
-    nombre: "Natación Terapéutica",
-    categoria: "Natación",
-    descripcion:
-      "Clases para mejorar movilidad y reducir estrés en piscina temperada",
-    duracion: 50,
-    capacidad: 10,
-    dificultad: "baja",
-    instructor: {
-      nombre: "Ana Torres",
-      cedula: "456123789",
-      especialidad: "Natación Terapéutica",
-    },
-    imagen:
-      "https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    horarios: ["Lunes 4:00 PM", "Miércoles 4:00 PM", "Viernes 4:00 PM"],
-  },
+  // ... más actividades de ejemplo
 ];
 
 const ListaActividades = () => {
   const navigate = useNavigate();
   const [actividades, setActividades] = useState([]);
   const [actividadSeleccionada, setActividadSeleccionada] = useState(null);
-  const [mostrarModalDetalles, setMostrarModalDetalles] = useState(false);
-  const [mostrarModalEliminar, setMostrarModalEliminar] = useState(false);
-  const [actividadAEliminar, setActividadAEliminar] = useState(null);
+  const [mostrarModalEditar, setMostrarModalEditar] = useState(false);
 
   useEffect(() => {
     // Simular carga de datos
@@ -74,30 +37,58 @@ const ListaActividades = () => {
 
   const abrirModalDetalles = (actividad) => {
     setActividadSeleccionada(actividad);
-    setMostrarModalDetalles(true);
   };
 
-  const cerrarModalDetalles = () => {
-    setMostrarModalDetalles(false);
+  const abrirModalEditar = (actividad) => {
+    setActividadSeleccionada(actividad);
+    setMostrarModalEditar(true);
+  };
+
+  const cerrarModalEditar = () => {
+    setMostrarModalEditar(false);
     setActividadSeleccionada(null);
   };
 
-  const abrirModalEliminar = (actividad) => {
-    setActividadAEliminar(actividad);
-    setMostrarModalEliminar(true);
+  const confirmarEliminar = (actividad) => {
+    Swal.fire({
+      title: '¿Eliminar actividad?',
+      html: `¿Estás seguro de eliminar la actividad <strong>"${actividad.nombre}"</strong>?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar',
+      background: 'white',
+      backdrop: `
+        rgba(0,0,0,0.5)
+        url("/images/trash-icon.gif")
+        left top
+        no-repeat
+      `
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setActividades(actividades.filter(a => a.id !== actividad.id));
+        Swal.fire(
+          '¡Eliminada!',
+          'La actividad ha sido eliminada.',
+          'success'
+        );
+      }
+    });
   };
 
-  const cerrarModalEliminar = () => {
-    setMostrarModalEliminar(false);
-    setActividadAEliminar(null);
-  };
-
-  const confirmarEliminar = () => {
-    if (actividadAEliminar) {
-      setActividades(actividades.filter((a) => a.id !== actividadAEliminar.id));
-      cerrarModalEliminar();
-      alert("Actividad eliminada correctamente");
-    }
+  const guardarCambios = (e) => {
+    e.preventDefault();
+    // Lógica para guardar cambios
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Cambios guardados',
+      showConfirmButton: false,
+      timer: 1500
+    });
+    cerrarModalEditar();
   };
 
   return (
@@ -116,9 +107,7 @@ const ListaActividades = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         {/* Encabezado */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-          <h1 className="text-3xl font-bold text-gray-900">
-            Listado de Actividades
-          </h1>
+          <h1 className="text-3xl font-bold text-gray-900">Listado de Actividades</h1>
           <div className="flex gap-3">
             <button
               onClick={() => navigate("/dashboardA/crear")}
@@ -142,15 +131,15 @@ const ListaActividades = () => {
               No hay actividades registradas
             </div>
           ) : (
-            actividades.map((actividad) => (
-              <div
-                key={actividad.id}
+            actividades.map(actividad => (
+              <div 
+                key={actividad.id} 
                 className="bg-white rounded-xl shadow-lg overflow-hidden backdrop-blur-sm bg-white/80 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
               >
                 {/* Imagen */}
                 <div className="h-48 overflow-hidden">
-                  <img
-                    src={actividad.imagen}
+                  <img 
+                    src={actividad.imagen} 
                     alt={actividad.nombre}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
@@ -159,47 +148,31 @@ const ListaActividades = () => {
                 {/* Contenido */}
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-2">
-                    <h2 className="text-xl font-bold text-gray-800">
-                      {actividad.nombre}
-                    </h2>
-                    <span
-                      className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                        actividad.dificultad === "alta"
-                          ? "bg-red-100 text-red-800"
-                          : actividad.dificultad === "media"
-                          ? "bg-yellow-100 text-yellow-800"
-                          : "bg-green-100 text-green-800"
-                      }`}
-                    >
+                    <h2 className="text-xl font-bold text-gray-800">{actividad.nombre}</h2>
+                    <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                      actividad.dificultad === "alta" ? "bg-red-100 text-red-800" :
+                      actividad.dificultad === "media" ? "bg-yellow-100 text-yellow-800" :
+                      "bg-green-100 text-green-800"
+                    }`}>
                       {actividad.dificultad}
                     </span>
                   </div>
 
                   <div className="flex items-center text-sm text-gray-600 mb-3">
                     <FiUser className="mr-2" />
-                    <span>
-                      {actividad.instructor.nombre} (CI:{" "}
-                      {actividad.instructor.cedula})
-                    </span>
+                    <span>{actividad.instructor.nombre} (CI: {actividad.instructor.cedula})</span>
                   </div>
 
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                    {actividad.descripcion}
-                  </p>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">{actividad.descripcion}</p>
 
                   <div className="flex flex-wrap gap-2 mb-4">
                     {actividad.horarios.slice(0, 2).map((horario, index) => (
-                      <span
-                        key={index}
-                        className="flex items-center text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded"
-                      >
+                      <span key={index} className="flex items-center text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded">
                         <FiClock className="mr-1" /> {horario}
                       </span>
                     ))}
                     {actividad.horarios.length > 2 && (
-                      <span className="text-xs text-gray-500">
-                        +{actividad.horarios.length - 2} más
-                      </span>
+                      <span className="text-xs text-gray-500">+{actividad.horarios.length - 2} más</span>
                     )}
                   </div>
 
@@ -208,24 +181,22 @@ const ListaActividades = () => {
                       {actividad.duracion} min • {actividad.capacidad} pers.
                     </span>
                     <div className="flex gap-2">
-                      <button
+                      <button 
                         onClick={() => abrirModalDetalles(actividad)}
                         className="p-2 text-indigo-600 hover:bg-indigo-50 rounded-full transition"
                         title="Ver detalles"
                       >
                         <FiEye />
                       </button>
-                      <button
-                        onClick={() =>
-                          navigate(`/dashboardA/editar/${actividad.id}`)
-                        }
+                      <button 
+                        onClick={() => abrirModalEditar(actividad)}
                         className="p-2 text-blue-600 hover:bg-blue-50 rounded-full transition"
                         title="Editar"
                       >
                         <FiEdit2 />
                       </button>
-                      <button
-                        onClick={() => abrirModalEliminar(actividad)}
+                      <button 
+                        onClick={() => confirmarEliminar(actividad)}
                         className="p-2 text-red-600 hover:bg-red-50 rounded-full transition"
                         title="Eliminar"
                       >
@@ -240,157 +211,126 @@ const ListaActividades = () => {
         </div>
       </div>
 
-      {/* Modal de Detalles */}
-      {mostrarModalDetalles && actividadSeleccionada && (
+      {/* Modal de Edición */}
+      {mostrarModalEditar && actividadSeleccionada && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto backdrop-blur-sm bg-white/90">
             <div className="sticky top-0 bg-white p-4 border-b flex justify-between items-center">
-              <h3 className="text-xl font-bold text-gray-800">
-                {actividadSeleccionada.nombre}
-              </h3>
-              <button
-                onClick={cerrarModalDetalles}
+              <h3 className="text-xl font-bold text-gray-800">Editar Actividad: {actividadSeleccionada.nombre}</h3>
+              <button 
+                onClick={cerrarModalEditar}
                 className="text-gray-500 hover:text-gray-700 transition"
               >
                 <FiX size={24} />
               </button>
             </div>
 
-            <div className="p-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                <div className="md:col-span-2">
-                  <img
-                    src={actividadSeleccionada.imagen}
-                    alt={actividadSeleccionada.nombre}
-                    className="w-full h-64 object-cover rounded-lg shadow-md"
-                  />
-                </div>
+            <form onSubmit={guardarCambios} className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Columna izquierda */}
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-gray-700">Categoría</h4>
-                    <p className="text-gray-600">
-                      {actividadSeleccionada.categoria}
-                    </p>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Nombre *</label>
+                    <input
+                      type="text"
+                      defaultValue={actividadSeleccionada.nombre}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      required
+                    />
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-700">Dificultad</h4>
-                    <p className="capitalize text-gray-600">
-                      {actividadSeleccionada.dificultad}
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-700">Duración</h4>
-                    <p className="text-gray-600">
-                      {actividadSeleccionada.duracion} minutos
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-700">Capacidad</h4>
-                    <p className="text-gray-600">
-                      {actividadSeleccionada.capacidad} personas
-                    </p>
-                  </div>
-                </div>
-              </div>
 
-              <div className="mb-6">
-                <h4 className="font-semibold text-gray-700 mb-2">
-                  Descripción
-                </h4>
-                <p className="text-gray-600">
-                  {actividadSeleccionada.descripcion}
-                </p>
-              </div>
-
-              <div className="mb-6">
-                <h4 className="font-semibold text-gray-700 mb-2">Instructor</h4>
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <p className="font-medium">
-                    {actividadSeleccionada.instructor.nombre}
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    Cédula: {actividadSeleccionada.instructor.cedula}
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    Especialidad:{" "}
-                    {actividadSeleccionada.instructor.especialidad}
-                  </p>
-                </div>
-              </div>
-
-              <div>
-                <h4 className="font-semibold text-gray-700 mb-2">Horarios</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                  {actividadSeleccionada.horarios.map((horario, index) => (
-                    <div
-                      key={index}
-                      className="bg-indigo-50 text-indigo-800 p-3 rounded-lg flex items-center"
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Categoría *</label>
+                    <select
+                      defaultValue={actividadSeleccionada.categoria}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      required
                     >
-                      <FiClock className="mr-2" />
-                      <span>{horario}</span>
+                      <option value="fitness">Fitness</option>
+                      <option value="yoga">Yoga</option>
+                      <option value="crossfit">Crossfit</option>
+                      <option value="natacion">Natación</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Descripción *</label>
+                    <textarea
+                      defaultValue={actividadSeleccionada.descripcion}
+                      rows={4}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      required
+                    />
+                  </div>
+                </div>
+
+                {/* Columna derecha */}
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Duración (min) *</label>
+                    <input
+                      type="number"
+                      defaultValue={actividadSeleccionada.duracion}
+                      min="1"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Capacidad *</label>
+                    <input
+                      type="number"
+                      defaultValue={actividadSeleccionada.capacidad}
+                      min="1"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Dificultad *</label>
+                    <div className="grid grid-cols-3 gap-2">
+                      {["baja", "media", "alta"].map((nivel) => (
+                        <label 
+                          key={nivel}
+                          className={`flex items-center justify-center p-2 rounded-lg border cursor-pointer transition ${
+                            actividadSeleccionada.dificultad === nivel 
+                              ? "border-indigo-500 bg-indigo-50 text-indigo-700"
+                              : "border-gray-300 hover:bg-gray-50"
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name="dificultad"
+                            defaultChecked={actividadSeleccionada.dificultad === nivel}
+                            className="hidden"
+                            required
+                          />
+                          <span className="capitalize">{nivel}</span>
+                        </label>
+                      ))}
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="p-4 border-t flex justify-end gap-3">
-              <button
-                onClick={cerrarModalDetalles}
-                className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition"
-              >
-                Cerrar
-              </button>
-              <button
-                onClick={() => {
-                  navigate(`/dashboardA/editar/${actividadSeleccionada.id}`);
-                  cerrarModalDetalles();
-                }}
-                className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
-              >
-                Editar Actividad
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Modal de Eliminar */}
-      {mostrarModalEliminar && actividadAEliminar && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-xl shadow-xl max-w-md w-full backdrop-blur-sm bg-white/90">
-            <div className="p-6">
-              <div className="text-center">
-                <h3 className="text-lg font-bold text-gray-800 mb-2">
-                  Confirmar Eliminación
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  ¿Estás seguro de que deseas eliminar la actividad{" "}
-                  <span className="font-semibold">
-                    "{actividadAEliminar.nombre}"
-                  </span>
-                  ?
-                </p>
-                <p className="text-sm text-gray-500">
-                  Esta acción no se puede deshacer.
-                </p>
-              </div>
-
-              <div className="flex justify-center gap-4 mt-6">
+              <div className="flex justify-end space-x-4 pt-6 mt-6 border-t">
                 <button
-                  onClick={cerrarModalEliminar}
+                  type="button"
+                  onClick={cerrarModalEditar}
                   className="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition"
                 >
                   Cancelar
                 </button>
                 <button
-                  onClick={confirmarEliminar}
-                  className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+                  type="submit"
+                  className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
                 >
-                  Eliminar
+                  Guardar Cambios
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       )}

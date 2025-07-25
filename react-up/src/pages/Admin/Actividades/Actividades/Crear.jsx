@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FiUpload, FiX, FiPlus, FiMinus, FiArrowLeft } from "react-icons/fi";
+import { FiUpload, FiX, FiPlus, FiMinus } from "react-icons/fi";
 
 const CrearActividad = () => {
   const navigate = useNavigate();
@@ -101,12 +101,6 @@ const CrearActividad = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         {/* Encabezado */}
         <div className="flex justify-between items-center mb-8">
-          <button
-            onClick={() => navigate("/dashboardA/lista")}
-            className="flex items-center text-indigo-600 hover:text-indigo-800 transition"
-          >
-            <FiArrowLeft className="mr-2" /> Volver al listado
-          </button>
           <h1 className="text-3xl font-bold text-gray-900 text-center">Crear Nueva Actividad</h1>
           <div className="w-8"></div> {/* Espacio para balancear */}
         </div>

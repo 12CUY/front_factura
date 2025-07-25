@@ -20,6 +20,12 @@ import DashboardConfiguracion from "../pages/Admin/Configuracion/DashboardCo";
 import CrearActividad from "../pages/Admin/Actividades/actividades/Crear";
 import ListaActividades from "../pages/Admin/Actividades/actividades/listado";
 import CalendarioActividades from "../pages/Admin/Actividades/actividades/calendario";
+import Instructores from "../pages/Admin/Actividades/Clases/Instructores";
+import ProgramarClass from "../pages/Admin/Actividades/Clases/Programarclase";
+import HorarioClass from "../pages/Admin/Actividades/Clases/Horarioclases";
+import RegistraVista from "../pages/Admin/Actividades/Visitas/Registrarvisita";
+import HistorialV from "../pages/Admin/Actividades/Visitas/Historialvisitas";
+import Reportes from "../pages/Admin/Actividades/Visitas/Reportes";
 
 /* Páginas de cliente */
 const AppRoutes = () => {
@@ -78,6 +84,67 @@ const AppRoutes = () => {
           <>
             <Navbar />
             <CalendarioActividades />
+          </>
+        }
+      />
+
+      {/* clases actividades */}
+      <Route
+        path="/dashboardA/crearclase"
+        element={
+          <>
+            <Navbar />
+            <ProgramarClass />
+          </>
+        }
+      />
+      {/* intructor actividades */}
+      <Route
+        path="/dashboardA/gestionarInstructores"
+        element={
+          <>
+            <Navbar />
+            <Instructores />
+          </>
+        }
+      />
+      {/* horario de clases actividades */}
+      <Route
+        path="/dashboardA/horarioClases"
+        element={
+          <>
+            <Navbar />
+            <HorarioClass />
+          </>
+        }
+      />
+      {/* registrar visita actividades */}
+      <Route
+        path="/visitas/registrar"
+        element={
+          <>
+            <Navbar />
+            <RegistraVista />
+          </>
+        }
+      />
+      {/* historial visita actividades */}
+      <Route
+        path="/visitas/historial"
+        element={
+          <>
+            <Navbar />
+            <HistorialV />
+          </>
+        }
+      />
+      {/* reportes visita actividades */}
+      <Route
+        path="/visitas/reportes"
+        element={
+          <>
+            <Navbar />
+            <Reportes />
           </>
         }
       />
