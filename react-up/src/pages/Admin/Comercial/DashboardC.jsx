@@ -10,15 +10,6 @@ const DashboardC = () => {
       cards: [
         {
           id: 1,
-          title: "Dashboard Comercial",
-          description: "Estadísticas y métricas clave del negocio",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132795.png",
-          route: "/comercial/dashboard",
-          bgColor: "bg-indigo-50",
-          iconColor: "text-indigo-500"
-        },
-        {
-          id: 2,
           title: "Promociones",
           description: "Crear y gestionar promociones especiales",
           icon: "https://cdn-icons-png.flaticon.com/512/3132/3132809.png",
@@ -26,15 +17,7 @@ const DashboardC = () => {
           bgColor: "bg-blue-50",
           iconColor: "text-blue-500"
         },
-        {
-          id: 3,
-          title: "Clientes Potenciales",
-          description: "Seguimiento de leads y prospectos",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132777.png",
-          route: "/comercial/leads",
-          bgColor: "bg-purple-50",
-          iconColor: "text-purple-500"
-        }
+
       ],
       mainIcon: "https://cdn-icons-png.flaticon.com/512/3132/3132809.png"
     },
@@ -42,16 +25,7 @@ const DashboardC = () => {
       title: "Membresías",
       cards: [
         {
-          id: 4,
-          title: "Tipos de Membresía",
-          description: "Configurar planes y precios",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132787.png",
-          route: "/membresias/planes",
-          bgColor: "bg-green-50",
-          iconColor: "text-green-500"
-        },
-        {
-          id: 5,
+          id: 2,
           title: "Asignar Membresía",
           description: "Asignar membresía a clientes",
           icon: "https://cdn-icons-png.flaticon.com/512/3132/3132775.png",
@@ -60,7 +34,7 @@ const DashboardC = () => {
           iconColor: "text-teal-500"
         },
         {
-          id: 6,
+          id: 3,
           title: "Renovaciones",
           description: "Gestionar renovaciones de membresías",
           icon: "https://cdn-icons-png.flaticon.com/512/3132/3132791.png",
@@ -75,7 +49,7 @@ const DashboardC = () => {
       title: "Pagos",
       cards: [
         {
-          id: 8,
+          id: 4,
           title: "Métodos de Pago",
           description: "Configurar formas de pago aceptadas",
           icon: "https://cdn-icons-png.flaticon.com/512/3132/3132768.png",
@@ -84,7 +58,7 @@ const DashboardC = () => {
           iconColor: "text-orange-500"
         },
         {
-          id: 9,
+          id: 5,
           title: "Facturación",
           description: "Generar facturas y recibos",
           icon: "https://cdn-icons-png.flaticon.com/512/3132/3132766.png",
@@ -99,7 +73,7 @@ const DashboardC = () => {
       title: "Ventas de Productos",
       cards: [
         {
-          id: 13,
+          id: 6,
           title: "Inventario",
           description: "Gestionar productos en stock",
           icon: "https://cdn-icons-png.flaticon.com/512/3132/3132760.png",
@@ -108,7 +82,7 @@ const DashboardC = () => {
           iconColor: "text-indigo-500"
         },
         {
-          id: 14,
+          id: 7,
           title: "Nueva Venta",
           description: "Registrar venta de productos",
           icon: "https://cdn-icons-png.flaticon.com/512/3132/3132758.png",
@@ -117,7 +91,7 @@ const DashboardC = () => {
           iconColor: "text-teal-500"
         },
         {
-          id: 15,
+          id: 8,
           title: "Productos Más Vendidos",
           description: "Análisis de ventas por producto",
           icon: "https://cdn-icons-png.flaticon.com/512/3132/3132756.png",
