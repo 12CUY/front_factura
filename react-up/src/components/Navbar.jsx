@@ -136,7 +136,7 @@ const Navbar = () => {
             )}
           </button>
 
-          {/* Entrenamiento */}
+          {/* Entrenamiento
           <button
             onClick={() => handleNavigation("/dashboardE")}
             id="entrenamiento"
@@ -153,9 +153,9 @@ const Navbar = () => {
             {!isMobile && (
               <span className="text-xs sm:text-sm font-medium">Entrenamiento</span>
             )}
-          </button>
+          </button> */}
 
-          {/* Inventario */}
+          {/* Inventario 
           <button
             onClick={() => handleNavigation("/dashboardI")}
             id="inventario"
@@ -172,7 +172,7 @@ const Navbar = () => {
             {!isMobile && (
               <span className="text-xs sm:text-sm font-medium">Inventario</span>
             )}
-          </button>
+          </button>*/}
 
 
           {/* Salir */}

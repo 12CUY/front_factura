@@ -10,10 +10,10 @@ const DashboardA = () => {
       cards: [
         {
           id: 1,
-          title: "Crear Actividad",
+          title: "Registar Actividad",
           description: "Registrar nueva actividad deportiva",
           icon: "https://cdn-icons-png.flaticon.com/512/2936/2936886.png",
-          route: "/dashboardA/crear",
+          route: "/dashboardA/registrar",
           bgColor: "bg-indigo-50",
           iconColor: "text-indigo-500",
         },

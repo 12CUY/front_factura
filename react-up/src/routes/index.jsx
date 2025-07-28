@@ -17,7 +17,6 @@ import DashboardEntrenamiento from "../pages/Admin/Entrenamiento/DashboardE";
 import DashboardInventario from "../pages/Admin/Inventario/DashboardI";
 import DashboardConfiguracion from "../pages/Admin/Configuracion/DashboardCo";
 /* rutas de actividades */
-import CrearActividad from "../pages/Admin/Actividades/actividades/Crear";
 import ListaActividades from "../pages/Admin/Actividades/actividades/listado";
 import CalendarioActividades from "../pages/Admin/Actividades/actividades/calendario";
 import Instructores from "../pages/Admin/Actividades/Clases/Instructores";
@@ -28,7 +27,7 @@ import HistorialV from "../pages/Admin/Actividades/Visitas/Historialvisitas";
 import Reportes from "../pages/Admin/Actividades/Visitas/Reportes";
 import Creacionusuario from "../pages/Admin/Usuarios/usuariosS/Creacionusuario";
 import Permisoyroles from "../pages/Admin/Usuarios/usuariosS/Permisoyroles";
-
+import RegistrarLog from "../pages/Admin/Actividades/Actividades/Registar";
 /* Páginas de cliente */
 const AppRoutes = () => {
   return (
@@ -61,11 +60,11 @@ const AppRoutes = () => {
       />
       {/* crear actividades */}
       <Route
-        path="/dashboardA/crear"
+        path="/dashboardA/registrar"
         element={
           <>
             <Navbar />
-            <CrearActividad />
+            <RegistrarLog />
           </>
         }
       />

@@ -29,72 +29,7 @@ const DashboardU = () => {
       ],
       mainIcon: "https://cdn-icons-png.flaticon.com/512/1077/1077063.png",
     },
-    {
-      title: "Empleados",
-      cards: [
-        {
-          id: 3,
-          title: "Empleado",
-          description: "Gestionar empleado",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132693.png",
-          route: "/empleados/crear",
-          bgColor: "bg-green-50",
-          iconColor: "text-green-500",
-        },
-        {
-          id: 4,
-          title: "Nómina",
-          description: "Gestión de pagos y salarios",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132781.png",
-          route: "/empleados/nomina",
-          bgColor: "bg-amber-50",
-          iconColor: "text-amber-500",
-        },
-        {
-          id: 5,
-          title: "Instructores",
-          description: "Gestión de profesores",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132773.png",
-          route: "/dashboardA/gestionarInstructores",
-          bgColor: "bg-amber-50",
-          iconColor: "text-amber-500",
-        },
-      ],
-      mainIcon: "https://cdn-icons-png.flaticon.com/512/3132/3132764.png",
-    },
-    {
-      title: "Clientes",
-      cards: [
-        {
-          id: 6,
-          title: "Creación de Cliente",
-          description: "Registrar nuevo cliente",
-          icon: "https://cdn-icons-png.flaticon.com/512/1005/1005141.png",
-          route: "/clientes/crear",
-          bgColor: "bg-green-50",
-          iconColor: "text-green-500",
-        },
-        {
-          id: 7,
-          title: "Listado de Clientes",
-          description: "Visualizar todos los clientes registrados",
-          icon: "https://cdn-icons-png.flaticon.com/512/1077/1077114.png",
-          route: "/clientes/lista",
-          bgColor: "bg-blue-50",
-          iconColor: "text-blue-500",
-        },
-        {
-          id: 8,
-          title: "Gráfica de Compras",
-          description: "Estadísticas de compras por cliente",
-          icon: "https://cdn-icons-png.flaticon.com/512/2675/2675974.png",
-          route: "/clientes/graficas",
-          bgColor: "bg-purple-50",
-          iconColor: "text-purple-500",
-        },
-      ],
-      mainIcon: "https://cdn-icons-png.flaticon.com/512/3446/3446426.png",
-    },
+
   ];
 
   const handleCardClick = (route) => {

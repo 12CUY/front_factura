@@ -8,8 +8,8 @@ const Registro = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [nombre, setNombre] = useState(""); // Matches backend model
+  const [telefono, setTelefono] = useState(""); // Matches backend model
   const [loading, setLoading] = useState(false);
   const [navigatingTo, setNavigatingTo] = useState("");
 
@@ -21,13 +21,14 @@ const Registro = () => {
     }, 1000);
   };
 
-  const handleRegistro = (e) => {
+  const handleRegistro = async (e) => {
     e.preventDefault();
 
-    if (!email || !password || !username || !phoneNumber) {
+    // Validate fields based on your SQL model (nombre, correo, password, telefono)
+    if (!email || !password || !nombre || !telefono) {
       Swal.fire({
         title: "Error",
-        text: "Todos los campos son requeridos",
+        text: "Todos los campos (Nombre, Email, Teléfono, Contraseña) son requeridos.",
         icon: "error",
         confirmButtonText: "Aceptar",
       });
@@ -35,19 +36,57 @@ const Registro = () => {
     }
 
     setLoading(true);
-    setNavigatingTo("/dashboard");
+    setNavigatingTo("/dashboard"); // Indicate registration attempt
 
-    // Simulación de registro
-    setTimeout(() => {
-      Swal.fire({
-        title: "Registro Exitoso",
-        text: "Te has registrado correctamente",
-        icon: "success",
-        confirmButtonText: "Ir al Dashboard",
-      }).then(() => {
-        navigate("/dashboard");
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/signup", {
+        // Your backend registration endpoint
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nombre: nombre,
+          correo: email,
+          password: password,
+          telefono: telefono,
+        }),
       });
-    }, 1500);
+      const data = await response.json();
+
+      if (response.ok) {
+        Swal.fire({
+          title: "Registro Exitoso",
+          text: data.message || "Te has registrado correctamente.",
+          icon: "success",
+          confirmButtonText: "Ir al Dashboard",
+        }).then(() => {
+          setLoading(false);
+          navigate("/dashboard");
+        });
+      } else {
+        Swal.fire({
+          title: "Error de Registro",
+          text:
+            data.message ||
+            "Error al registrarte. Por favor, inténtalo de nuevo.",
+          icon: "error",
+          confirmButtonText: "Intentar de nuevo",
+        });
+        setLoading(false);
+        setNavigatingTo("");
+      }
+    } catch (error) {
+      console.error("Error during registration:", error);
+      Swal.fire({
+        title: "Error de Conexión",
+        text: "No se pudo conectar con el servidor. Por favor, inténtalo de nuevo más tarde.",
+        icon: "error",
+        confirmButtonText: "Aceptar",
+      });
+      setLoading(false);
+      setNavigatingTo("");
+    }
   };
 
   if (loading) {
@@ -92,17 +131,17 @@ const Registro = () => {
               transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
             >
               <label
-                htmlFor="username"
+                htmlFor="nombre"
                 className="block text-sm font-medium text-[#2C3E50]"
               >
-                Nombre de Usuario
+                Nombre
               </label>
               <input
                 type="text"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="Ingresa tu nombre de usuario"
+                id="nombre"
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
+                placeholder="Ingresa tu nombre"
                 className="w-full p-3 border-none bg-white rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-[#2C3E50]"
               />
             </motion.div>
@@ -134,16 +173,16 @@ const Registro = () => {
               transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
             >
               <label
-                htmlFor="phoneNumber"
+                htmlFor="telefono"
                 className="block text-sm font-medium text-[#2C3E50]"
               >
                 Número de Teléfono
               </label>
               <input
                 type="tel"
-                id="phoneNumber"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
+                id="telefono"
+                value={telefono}
+                onChange={(e) => setTelefono(e.target.value)}
                 placeholder="Ingresa tu número de teléfono"
                 className="w-full p-3 border-none bg-white rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-[#2C3E50]"
               />

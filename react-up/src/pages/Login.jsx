@@ -8,51 +8,85 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [dataLoaded, setDataLoaded] = useState(false);
-  const [navigatingTo, setNavigatingTo] = useState(""); // Para saber a dónde estamos navegando
+  const [dataLoaded, setDataLoaded] = useState(false); // Consider renaming this for clarity, as it's not just about data loading but auth success
+  const [navigatingTo, setNavigatingTo] = useState("");
 
   const handleNavigation = (route) => {
     setNavigatingTo(route);
     setLoading(true);
-    
-    // Simulamos un tiempo de carga antes de navegar
+
     setTimeout(() => {
       navigate(route);
-    }, 1000); // 1 segundo de pantalla de carga
+    }, 1000);
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => { // Made async
     e.preventDefault();
 
-    const validEmail = "admin@yavirac.edu.ec";
-    const validPassword = "12345";
-
-    if (email === validEmail && password === validPassword) {
+    if (!email || !password) {
       Swal.fire({
-        title: "Bienvenido",
-        text: "Datos cargados correctamente",
-        icon: "success",
-        confirmButtonText: "Continuar",
-      }).then(() => {
-        setNavigatingTo("/dashboard");
-        setLoading(true);
+        title: "Error",
+        text: "Por favor, ingresa tu correo y contraseña.",
+        icon: "error",
+        confirmButtonText: "Aceptar",
+      });
+      return;
+    }
 
-        setTimeout(() => {
+    setLoading(true);
+    setNavigatingTo("/dashboard"); // Indicate login attempt
+
+    try {
+      const response = await fetch('http://localhost:3000/api/auth/signin', { // Your backend login endpoint
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          correo: email,
+          password: password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Assuming your backend sends a success message or user data on successful login
+        Swal.fire({
+          title: "Bienvenido",
+          text: data.message || "Has iniciado sesión correctamente.",
+          icon: "success",
+          confirmButtonText: "Continuar",
+        }).then(() => {
           setLoading(false);
-          setDataLoaded(true);
+          setDataLoaded(true); // Indicate successful authentication
 
+          // Short delay before navigating to dashboard for visual feedback
           setTimeout(() => {
             navigate("/dashboard");
           }, 200);
-        }, 200);
-      });
-    } else {
+        });
+      } else {
+        // Handle login errors from the backend
+        Swal.fire({
+          title: "Error de Credenciales",
+          text: data.message || "Correo o contraseña incorrectos. Por favor, inténtalo de nuevo.",
+          icon: "error",
+          confirmButtonText: "Intentar de nuevo",
+        });
+        setLoading(false);
+        setNavigatingTo("");
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
       Swal.fire({
-        title: "Error",
-        text: "Credenciales incorrectas",
+        title: "Error de Conexión",
+        text: "No se pudo conectar con el servidor. Por favor, inténtalo de nuevo más tarde.",
         icon: "error",
-        confirmButtonText: "Intentar de nuevo",
+        confirmButtonText: "Aceptar",
       });
+      setLoading(false);
+      setNavigatingTo("");
     }
   };
 
@@ -74,12 +108,15 @@ const Login = () => {
     );
   }
 
+  // This `dataLoaded` state might be redundant if `loading` handles all transitions.
+  // Consider if you really need a separate "Datos cargados con éxito!" screen,
+  // or if navigating directly to dashboard after success is sufficient.
   if (dataLoaded) {
     return (
       <div className="flex items-center justify-center h-screen bg-[url('/gimnasiologin.jpg')] bg-cover bg-center px-4">
         <div className="text-center bg-white bg-opacity-90 p-8 rounded-lg">
           <p className="text-lg sm:text-xl md:text-2xl text-[#2C3E50]">
-            ¡Datos cargados con éxito!
+            ¡Inicio de sesión exitoso!
           </p>
         </div>
       </div>
