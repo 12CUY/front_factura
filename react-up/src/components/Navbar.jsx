@@ -64,7 +64,7 @@ const Navbar = () => {
           <button
             onClick={() => handleNavigation("/dashboard")}
             id="dashboard"
-            className="flex flex-col items-center justify-center rounded-full px-3 sm:px-4 py-2 text-[#2C3E50] bg-[#9ACFE2] text-white"
+            className="flex flex-col items-center justify-center rounded-full px-3 sm:px-4 py-2  bg-[#9ACFE2] text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

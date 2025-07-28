@@ -57,7 +57,8 @@ const Registro = () => {
       if (response.ok) {
         Swal.fire({
           title: "Registro Exitoso",
-          text: data.message || "Te has registrado correctamente.",
+          // Here's the change: Using a template literal to include the name
+          text: `¡Bienvenido(a), ${nombre}! Te has registrado correctamente.`,
           icon: "success",
           confirmButtonText: "Ir al Dashboard",
         }).then(() => {

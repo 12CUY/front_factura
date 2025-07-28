@@ -19,7 +19,6 @@ import DashboardConfiguracion from "../pages/Admin/Configuracion/DashboardCo";
 /* rutas de actividades */
 import ListaActividades from "../pages/Admin/Actividades/actividades/listado";
 import CalendarioActividades from "../pages/Admin/Actividades/actividades/calendario";
-import Instructores from "../pages/Admin/Actividades/Clases/Instructores";
 import ProgramarClass from "../pages/Admin/Actividades/Clases/Programarclase";
 import HorarioClass from "../pages/Admin/Actividades/Clases/Horarioclases";
 import RegistraVista from "../pages/Admin/Actividades/Visitas/Registrarvisita";
@@ -28,6 +27,7 @@ import Reportes from "../pages/Admin/Actividades/Visitas/Reportes";
 import Creacionusuario from "../pages/Admin/Usuarios/usuariosS/Creacionusuario";
 import Permisoyroles from "../pages/Admin/Usuarios/usuariosS/Permisoyroles";
 import RegistrarLog from "../pages/Admin/Actividades/Actividades/Registar";
+import Profesores from "../pages/Admin/Actividades/Clases/Profesor";
 /* Páginas de cliente */
 const AppRoutes = () => {
   return (
@@ -101,11 +101,11 @@ const AppRoutes = () => {
       />
       {/* intructor actividades */}
       <Route
-        path="/dashboardA/gestionarInstructores"
+        path="/dashboardA/Profesores"
         element={
           <>
             <Navbar />
-            <Instructores />
+            <Profesores />
           </>
         }
       />

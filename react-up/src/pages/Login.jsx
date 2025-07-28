@@ -8,7 +8,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [dataLoaded, setDataLoaded] = useState(false); // Consider renaming this for clarity, as it's not just about data loading but auth success
+  const [dataLoaded, setDataLoaded] = useState(false);
   const [navigatingTo, setNavigatingTo] = useState("");
 
   const handleNavigation = (route) => {
@@ -20,7 +20,7 @@ const Login = () => {
     }, 1000);
   };
 
-  const handleLogin = async (e) => { // Made async
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     if (!email || !password) {
@@ -34,10 +34,10 @@ const Login = () => {
     }
 
     setLoading(true);
-    setNavigatingTo("/dashboard"); // Indicate login attempt
+    setNavigatingTo("/dashboard");
 
     try {
-      const response = await fetch('http://localhost:3000/api/auth/signin', { // Your backend login endpoint
+      const response = await fetch('http://localhost:3000/api/auth/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,23 +51,21 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // Assuming your backend sends a success message or user data on successful login
         Swal.fire({
           title: "Bienvenido",
-          text: data.message || "Has iniciado sesión correctamente.",
+          // Here's the change: Using a template literal to include the email
+          text: `Has iniciado sesión correctamente con el correo: ${email}.`,
           icon: "success",
           confirmButtonText: "Continuar",
         }).then(() => {
           setLoading(false);
-          setDataLoaded(true); // Indicate successful authentication
+          setDataLoaded(true);
 
-          // Short delay before navigating to dashboard for visual feedback
           setTimeout(() => {
             navigate("/dashboard");
           }, 200);
         });
       } else {
-        // Handle login errors from the backend
         Swal.fire({
           title: "Error de Credenciales",
           text: data.message || "Correo o contraseña incorrectos. Por favor, inténtalo de nuevo.",
@@ -108,9 +106,6 @@ const Login = () => {
     );
   }
 
-  // This `dataLoaded` state might be redundant if `loading` handles all transitions.
-  // Consider if you really need a separate "Datos cargados con éxito!" screen,
-  // or if navigating directly to dashboard after success is sufficient.
   if (dataLoaded) {
     return (
       <div className="flex items-center justify-center h-screen bg-[url('/gimnasiologin.jpg')] bg-cover bg-center px-4">

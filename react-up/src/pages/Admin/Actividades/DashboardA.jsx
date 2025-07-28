@@ -64,7 +64,7 @@ const DashboardA = () => {
           title: "Instructores",
           description: "Gestión de profesores",
           icon: "https://cdn-icons-png.flaticon.com/512/3132/3132773.png",
-          route: "/dashboardA/gestionarInstructores",
+          route: "/dashboardA/Profesores",
           bgColor: "bg-amber-50",
           iconColor: "text-amber-500",
         },
