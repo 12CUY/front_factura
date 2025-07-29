@@ -197,16 +197,7 @@ const Login = () => {
               </button>
             </p>
           </div>
-          <div className="mt-4 text-center">
-            <p className="text-sm text-[#2C3E50]">
-              <button
-                onClick={() => handleNavigation("/recuperar")}
-                className="text-[#2C3E50] hover:text-[#1F2C3C] font-semibold"
-              >
-                Recuperar contraseña
-              </button>
-            </p>
-          </div>
+
         </div>
       </motion.div>
     </div>

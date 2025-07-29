@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const DashboardC = () => {
   const navigate = useNavigate();
@@ -6,102 +6,38 @@ const DashboardC = () => {
   // Datos de las cards para cada sección
   const sections = [
     {
-      title: "Gestión Comercial",
-      cards: [
-        {
-          id: 1,
-          title: "Promociones",
-          description: "Crear y gestionar promociones especiales",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132809.png",
-          route: "/comercial/promociones",
-          bgColor: "bg-blue-50",
-          iconColor: "text-blue-500"
-        },
-
-      ],
-      mainIcon: "https://cdn-icons-png.flaticon.com/512/3132/3132809.png"
-    },
-    {
-      title: "Membresías",
-      cards: [
-        {
-          id: 2,
-          title: "Asignar Membresía",
-          description: "Asignar membresía a clientes",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132775.png",
-          route: "/membresias/asignar",
-          bgColor: "bg-teal-50",
-          iconColor: "text-teal-500"
-        },
-        {
-          id: 3,
-          title: "Renovaciones",
-          description: "Gestionar renovaciones de membresías",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132791.png",
-          route: "/membresias/renovaciones",
-          bgColor: "bg-amber-50",
-          iconColor: "text-amber-500"
-        }
-      ],
-      mainIcon: "https://cdn-icons-png.flaticon.com/512/3132/3132787.png"
-    },
-    {
-      title: "Pagos",
-      cards: [
-        {
-          id: 4,
-          title: "Métodos de Pago",
-          description: "Configurar formas de pago aceptadas",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132768.png",
-          route: "/pagos/metodos",
-          bgColor: "bg-orange-50",
-          iconColor: "text-orange-500"
-        },
-        {
-          id: 5,
-          title: "Facturación",
-          description: "Generar facturas y recibos",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132766.png",
-          route: "/pagos/facturacion",
-          bgColor: "bg-yellow-50",
-          iconColor: "text-yellow-500"
-        }
-      ],
-      mainIcon: "https://cdn-icons-png.flaticon.com/512/3132/3132771.png"
-    },
-    {
       title: "Ventas de Productos",
       cards: [
         {
-          id: 6,
-          title: "Inventario",
-          description: "Gestionar productos en stock",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132760.png",
-          route: "/ventas-productos/inventario",
-          bgColor: "bg-indigo-50",
-          iconColor: "text-indigo-500"
-        },
-        {
-          id: 7,
+          id: 1,
           title: "Nueva Venta",
-          description: "Registrar venta de productos",
+          description: "Registrar venta de producto",
           icon: "https://cdn-icons-png.flaticon.com/512/3132/3132758.png",
           route: "/ventas-productos/nueva",
           bgColor: "bg-teal-50",
-          iconColor: "text-teal-500"
+          iconColor: "text-teal-500",
         },
         {
-          id: 8,
+          id: 2,
+          title: "Inventario",
+          description: "Listado productos en stock",
+          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132760.png",
+          route: "/ventas-productos/inventario",
+          bgColor: "bg-indigo-50",
+          iconColor: "text-indigo-500",
+        },
+        {
+          id: 3,
           title: "Productos Más Vendidos",
           description: "Análisis de ventas por producto",
           icon: "https://cdn-icons-png.flaticon.com/512/3132/3132756.png",
           route: "/ventas-productos/analisis",
           bgColor: "bg-amber-50",
-          iconColor: "text-amber-500"
-        }
+          iconColor: "text-amber-500",
+        },
       ],
-      mainIcon: "https://cdn-icons-png.flaticon.com/512/3132/3132760.png"
-    }
+      mainIcon: "https://cdn-icons-png.flaticon.com/512/3132/3132760.png",
+    },
   ];
 
   const handleCardClick = (route) => {
@@ -109,19 +45,19 @@ const DashboardC = () => {
   };
 
   return (
-    <div 
+    <div
       className="min-h-screen pt-16 bg-gray-50"
       style={{
         backgroundImage: "url('/gimnasio_comercial_productos.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed"
+        backgroundAttachment: "fixed",
       }}
     >
       {/* Fondo semitransparente para mejorar legibilidad */}
       <div className="absolute inset-0 bg-black/10"></div>
-      
+
       {/* Contenido principal */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         {/* Título principal */}
@@ -143,17 +79,17 @@ const DashboardC = () => {
                 {/* Columna 1 - Sección con imagen */}
                 <div className="space-y-6">
                   <section className="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center h-full transition-all duration-500 hover:shadow-xl backdrop-blur-sm bg-white/80">
-                    <div 
-                      className="animate-pulse mb-4" 
-                      style={{ 
-                        animationDuration: '2s', 
-                        animationIterationCount: 'infinite',
-                        animationTimingFunction: 'ease-in-out'
+                    <div
+                      className="animate-pulse mb-4"
+                      style={{
+                        animationDuration: "2s",
+                        animationIterationCount: "infinite",
+                        animationTimingFunction: "ease-in-out",
                       }}
                     >
-                      <img 
-                        src={section.mainIcon} 
-                        alt={section.title} 
+                      <img
+                        src={section.mainIcon}
+                        alt={section.title}
                         className="h-24 w-24 object-contain drop-shadow-md"
                       />
                     </div>
@@ -163,32 +99,47 @@ const DashboardC = () => {
                 {/* Columna 2 - Cards animadas */}
                 <div className="space-y-6">
                   {section.cards.map((card) => (
-                    <div 
+                    <div
                       key={card.id}
                       onClick={() => handleCardClick(card.route)}
                       className={`${card.bgColor} rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer border border-transparent hover:border-white/30 backdrop-blur-sm bg-opacity-80`}
                     >
                       <div className="p-6">
                         <div className="flex items-center">
-                          <div 
+                          <div
                             className={`mr-4 ${card.iconColor}`}
                             style={{
-                              animation: `${card.id % 2 === 0 ? 'pulse' : 'bounce'} 2s infinite ease-in-out`
+                              animation: `${
+                                card.id % 2 === 0 ? "pulse" : "bounce"
+                              } 2s infinite ease-in-out`,
                             }}
                           >
-                            <img 
-                              src={card.icon} 
-                              alt={card.title} 
+                            <img
+                              src={card.icon}
+                              alt={card.title}
                               className="h-12 w-12 object-contain drop-shadow-sm"
                             />
                           </div>
                           <div>
-                            <h3 className="text-lg font-semibold text-gray-800">{card.title}</h3>
-                            <p className="text-gray-600 text-sm">{card.description}</p>
+                            <h3 className="text-lg font-semibold text-gray-800">
+                              {card.title}
+                            </h3>
+                            <p className="text-gray-600 text-sm">
+                              {card.description}
+                            </p>
                           </div>
                           <div className="ml-auto">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="h-5 w-5 text-gray-400"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clipRule="evenodd"
+                              />
                             </svg>
                           </div>
                         </div>

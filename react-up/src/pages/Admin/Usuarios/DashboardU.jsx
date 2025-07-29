@@ -10,15 +10,6 @@ const DashboardU = () => {
       cards: [
         {
           id: 1,
-          title: "Creación de Usuario",
-          description: "Registrar nuevo usuario del sistema",
-          icon: "https://cdn-icons-png.flaticon.com/512/3033/3033143.png",
-          route: "/dashboardU/CreacionUsuario",
-          bgColor: "bg-indigo-50",
-          iconColor: "text-indigo-500",
-        },
-        {
-          id: 2,
           title: "Permisos y Roles",
           description: "Gestionar permisos de usuarios",
           icon: "https://cdn-icons-png.flaticon.com/512/1570/1570930.png",
