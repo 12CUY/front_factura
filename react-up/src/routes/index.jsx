@@ -28,6 +28,9 @@ import Creacionusuario from "../pages/Admin/Usuarios/usuariosS/Creacionusuario";
 import Permisoyroles from "../pages/Admin/Usuarios/usuariosS/Permisoyroles";
 import RegistrarLog from "../pages/Admin/Actividades/Actividades/Registar";
 import Profesores from "../pages/Admin/Actividades/Clases/Profesor";
+import VentaProducto from "../pages/Admin/Comercial/VentaProducto";
+import Inventario from "../pages/Admin/Comercial/Inventario";
+import Analisis from "../pages/Admin/Comercial/Analisis";
 /* Páginas de cliente */
 const AppRoutes = () => {
   return (
@@ -218,6 +221,33 @@ const AppRoutes = () => {
           <>
             <Navbar />
             <DashboardConfiguracion />
+          </>
+        }
+      />
+      <Route
+        path="/ventas-productos/nueva"
+        element={
+          <>
+            <Navbar />
+            < VentaProducto/>
+          </>
+        }
+      />
+      <Route
+        path="/ventas-productos/inventario"
+        element={
+          <>
+            <Navbar />
+            < Inventario/>
+          </>
+        }
+      />
+      <Route
+        path="/ventas-productos/analisis"
+        element={
+          <>
+            <Navbar />
+            < Analisis/>
           </>
         }
       />
