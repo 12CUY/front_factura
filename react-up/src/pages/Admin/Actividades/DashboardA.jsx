@@ -16,54 +16,18 @@ const DashboardA = () => {
           route: "/dashboardA/registrar",
           bgColor: "bg-indigo-50",
           iconColor: "text-indigo-500",
-        },
-        {
-          id: 2,
-          title: "Listado de Actividades",
-          description: "Visualizar todas las actividades disponibles",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132696.png",
-          route: "/dashboardA/lista",
-          bgColor: "bg-blue-50",
-          iconColor: "text-blue-500",
-        },
-        {
-          id: 3,
-          title: "Calendario",
-          description: "Programación de actividades",
-          icon: "https://cdn-icons-png.flaticon.com/512/3652/3652191.png",
-          route: "/dashboardA/calendario",
-          bgColor: "bg-purple-50",
-          iconColor: "text-purple-500",
-        },
+        }
       ],
       mainIcon: "https://cdn-icons-png.flaticon.com/512/2936/2936886.png",
     },
     {
-      title: "Clases",
+      title: "Instructores",
       cards: [
         {
           id: 4,
-          title: "Programar Clase",
-          description: "Crear nueva clase deportiva",
-          icon: "https://cdn-icons-png.flaticon.com/512/3048/3048127.png",
-          route: "/dashboardA/crearclase",
-          bgColor: "bg-green-50",
-          iconColor: "text-green-500",
-        },
-        {
-          id: 5,
-          title: "Horario de Clases",
-          description: "Ver todas las clases programadas",
-          icon: "https://cdn-icons-png.flaticon.com/512/3652/3652191.png",
-          route: "/dashboardA/horarioClases",
-          bgColor: "bg-teal-50",
-          iconColor: "text-teal-500",
-        },
-        {
-          id: 6,
           title: "Instructores",
           description: "Gestión de profesores",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132773.png",
+          icon: "https://cdn-icons-png.flaticon.com/512/3048/3048127.png",
           route: "/dashboardA/Profesores",
           bgColor: "bg-amber-50",
           iconColor: "text-amber-500",
@@ -75,32 +39,15 @@ const DashboardA = () => {
       title: "Visitas",
       cards: [
         {
-          id: 7,
-          title: "Registrar Visita",
-          description: "Registrar nueva visita al gimnasio",
+          id: 5,
+          title: "Gestionar Visita",
+          description: "Registrar y Crear nueva visita al gimnasio",
           icon: "https://cdn-icons-png.flaticon.com/512/3132/3132785.png",
-          route: "/visitas/registrar",
+          route: "/visitas/gestionar-visita",
           bgColor: "bg-indigo-50",
           iconColor: "text-indigo-500",
-        },
-        {
-          id: 8,
-          title: "Historial de Visitas",
-          description: "Ver registro de visitantes",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132805.png",
-          route: "/visitas/historial",
-          bgColor: "bg-teal-50",
-          iconColor: "text-teal-500",
-        },
-        {
-          id: 9,
-          title: "Reportes",
-          description: "Generar reportes de asistencia",
-          icon: "https://cdn-icons-png.flaticon.com/512/3132/3132797.png",
-          route: "/visitas/reportes",
-          bgColor: "bg-amber-50",
-          iconColor: "text-amber-500",
-        },
+        }
+        
       ],
       mainIcon: "https://cdn-icons-png.flaticon.com/512/3132/3132785.png",
     },
@@ -127,7 +74,7 @@ const DashboardA = () => {
       {/* Contenido principal */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         {/* Título principal */}
-        <h1 className="text-3xl font-bold text-white mb-8 text-center">
+        <h1 className="text-3xl font-bold text-slate-700 mb-8 text-center">
           Panel de Administración Deportivo
         </h1>
 
