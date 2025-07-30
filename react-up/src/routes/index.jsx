@@ -10,7 +10,6 @@ import Navbar from "../components/Navbar";
 
 /* Rutas de administrador */
 import DashboardU from "../pages/Admin/Usuarios/DashboardU";
-import DashboardResumen from "../pages/Admin/Dashboard/Dashboardresumen";
 import DashboardA from "../pages/Admin/Actividades/DashboardA";
 import DashboardEntrenamiento from "../pages/Admin/Entrenamiento/DashboardE";
 
@@ -21,6 +20,10 @@ import Profesores from "../pages/Admin/Actividades/Clases/Profesor";
 
 import GestionarVisita from "../pages/Admin/Actividades/Visitas/Gestionarvisita";
 import GestionarActividades from "../pages/Admin/Actividades/Actividades/Gestionaractividades";
+import DashboardC from "../pages/Admin/Comercial/DashboardC";
+import VentaProducto from "../pages/Admin/Comercial/VentaProducto";
+import Inventario from "../pages/Admin/Comercial/Inventario";
+import DashboardResumen from "../pages/Admin/Dashboard/Dashboardresumen";
 /* Páginas de cliente */
 const AppRoutes = () => {
   return (
@@ -126,6 +129,36 @@ const AppRoutes = () => {
           <>
             <Navbar />
             <DashboardEntrenamiento />
+          </>
+        }
+      />
+      {/* comercial */}
+      <Route
+        path="/dashboardC"
+        element={
+          <>
+            <Navbar />
+            <DashboardC />
+          </>
+        }
+      />
+            {/* comercial */}
+      <Route
+        path="/comercial/gestionar-ventas"
+        element={
+          <>
+            <Navbar />
+            <VentaProducto />
+          </>
+        }
+      />
+                  {/* inventario */}
+      <Route
+        path="/comercial/inventario"
+        element={
+          <>
+            <Navbar />
+            <Inventario />
           </>
         }
       />

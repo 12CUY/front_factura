@@ -227,7 +227,7 @@ const DashboardResumen = () => {
         {/* Encabezado */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Resumen General</h1>
+            <h1 className="text-3xl font-bold text-slate-700">Resumen General</h1>
             <p className="text-black">Visión completa de tu negocio</p>
           </div>
           <div className="bg-white/80 rounded-lg px-4 py-2 shadow-sm mt-2 md:mt-0">
